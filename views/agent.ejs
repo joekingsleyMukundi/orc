@@ -1,0 +1,147 @@
+<%- include('./includes/headers.ejs') %>
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Packages</h4>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center mb-5">
+                            <h4>Choose your Add On</h4>
+                            <p class="text-muted">Add ons are a good way to  be a premium member and to be prioritised as a vip </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-md-6">
+                        <div class="card plan-box">
+                            <div class="card-body p-4">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <h5>Associate Pr</h5>
+                                        <p class="text-muted">Wallet Benefits</p>
+                                    </div>
+                                    <div class="flex-shrink-0 ms-3">
+                                        <i class="bx bx-cycling h1 text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="py-4">
+                                    <h2><sup><small>KES</small></sup> 7000/ <span class="font-size-13">Per month</span>
+                                    </h2>
+                                </div>
+                                <div class="text-center plan-btn">
+                                    <a href="javascript: void(0);"
+                                        class="btn btn-primary btn-sm waves-effect waves-light"
+                                        onclick="redirectToPayment('Associate', 4800)">
+                                        Select Plan
+                                    </a>
+
+                                    <script>
+                                        function redirectToPayment(option, amount) {
+                                            // Construct the URL with query parameters
+                                            const baseUrl = "/payment/package";
+                                            const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                            // Redirect the user
+                                            window.location.href = url;
+                                        }
+                                    </script>
+                                </div>
+
+                                <div class="plan-features mt-5">
+                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Guaranteed Wallet Access</p>
+                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Monetary benefits</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                        <div class="card plan-box">
+                            <div class="card-body p-4">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <h5>Partner</h5>
+                                        <p class="text-muted">Priority Package</p>
+                                    </div>
+                                    <div class="flex-shrink-0 ms-3">
+                                        <i class="bx bx-car h1 text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="py-4">
+                                    <h2><sup><small>KES</small></sup> 8000/ <span class="font-size-13">Per month</span>
+                                    </h2>
+                                </div>
+                                <div class="text-center plan-btn">
+                                    <a href="javascript:void(0);"
+                                        class="btn btn-primary btn-sm waves-effect waves-light"
+                                        onclick="redirectToPayment('Partner', 8000)">
+                                        Select Plan
+                                    </a>
+
+                                    <script>
+                                        function redirectToPayment(option, amount) {
+                                            // Construct the URL with query parameters
+                                            const baseUrl = "/payment/package";
+                                            const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                            // Redirect the user
+                                            window.location.href = url;
+                                        }
+                                    </script>
+
+                                </div>
+
+                                <div class="plan-features mt-5">
+                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Priority User</p>
+                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Zero wait time</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>document.write(new Date().getFullYear())</script> © LuxurPay.
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            Design & Develop by JK.M Ids
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+    <%- include('./includes/footer.ejs') %>

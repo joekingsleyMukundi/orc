@@ -1,0 +1,235 @@
+<%- include('./includes/headers.ejs') %>
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Downlines</h4>
+					<% if (successmessage.length> 0) { %>
+                                        <div class="alert alert-success text-center mb-4" role="alert">
+                                            <%= successmessage[0]%>.
+                                        </div>
+                                        <% } %>
+                                            <% if (errormessage.length> 0) { %>
+                                                <div class="alert alert-danger text-center mb-4" role="alert">
+                                                    <%= errormessage[0]%>.
+                                                </div>
+                                                <% } %>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Downlines</h4>
+                                        <p class="card-title-desc">Click a row to view the user's dashboard.You have earned <%=dashboard.affiliateEarnings%> from your invites</p>
+                                         <a href="javascript:void(0);" class="btn btn-primary btn-sm w-md" onclick="handleWithdraw()">Withdraw</a>
+					<!-- Popups -->
+                                                        <div id="popupContainer"
+                                                            style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -20%); padding: 20px; border: 1px solid #ccc; background: white; z-index: 1000; width: 300px; text-align: center;">
+                                                            <p id="popupMessage"></p>
+                                                            <p id="popupAmount" style="font-weight: bold; display: none;"></p>
+                                                            <button id="completeButton" class="btn btn-success btn-sm w-md" onclick="completeAction()">Complete</button>
+                                                            <button class="btn btn-secondary btn-sm w-md" onclick="closePopup()">Cancel</button>
+                                                        </div>
+                                                        
+                                                        <script>
+                                                            // Simulated dashboard object for demonstration purposes
+                                                            const dashboard = {
+                                                                package: "<%= dashboard.package %>" // Example package: 'Money Pass', 'Activity Plus', 'Premium Plus'
+                                                            };
+							const packageType = dashboard.package;
+
+                                                            function handleWithdraw() {
+                                                                const popupContainer = document.getElementById("popupContainer");
+                                                                const popupMessage = document.getElementById("popupMessage");
+                                                                const popupAmount = document.getElementById("popupAmount");
+                                                                const completeButton = document.getElementById("completeButton");
+
+                                                                // Determine the popup content based on the package
+                                                                if (packageType == 'Basic' || packageType == 'Platinum' || packageType == 'Premium_ads') {
+                                                                    popupMessage.textContent = "Purchase Money pass to proceed.";
+                                                                    popupAmount.textContent = "Amount: KES 9000";
+                                                                    popupAmount.style.display = "block";
+                                                                } 
+
+                                                                // Show the popup
+                                                                popupContainer.style.display = "block";
+                                                            }
+
+                                                            function completeAction() {
+                                                                if (packageType !== 'Basic' || packageType !== 'Platinum' || packageType !== 'Premium_ads') {
+                                                                    // Send a POST request to the /withdraw endpoint
+                                                                    fetch('/withdraw', {
+                                                                        method: 'POST',
+                                                                        headers: {
+                                                                            'Content-Type': 'application/json'
+                                                                        },
+                                                                        body: JSON.stringify({
+									    module: 'affiliates',
+                                                                            package: dashboard.package, // Send the package information if needed
+                                                                            timestamp: new Date().toISOString() // Include additional data if required
+                                                                        })
+                                                                    })
+                                                                        .then(response => {
+                                                                            if (response.ok) {
+                                                                                alert("Withdrawal completed successfully!");
+										window.location.reload();	
+                                                                            } else {
+                                                                                alert("Failed to complete withdrawal. Please try again.");
+                                                                            }
+                                                                            return response.json();
+                                                                        })
+                                                                        .catch(error => {
+                                                                            console.error("Error during withdrawal request:", error);
+                                                                            alert("An error occurred. Please check your network and try again.");
+                                                                        });
+                                                                }else {
+                                                                    function redirectToPayment(option, amount) {
+                                                                        // Construct the URL with query parameters
+                                                                        const baseUrl = "/payment/package";
+                                                                        const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                                                        // Redirect the user
+                                                                        window.location.href = url;
+                                                                    }
+                                                                   redirectToPayment("Money_pass",9000)
+                                                                }
+                                                                closePopup();
+                                                            }
+
+                                                            function closePopup() {
+                                                                // Close the popup
+                                                                document.getElementById("popupContainer").style.display = "none";
+                                                            }
+                                                        </script>
+
+							<style>
+                                                            /* Optional styling for the popup */
+                                                            .btn {
+                                                                display: inline-block;
+                                                                margin: 5px;
+                                                                padding: 10px;
+                                                                text-align: center;
+                                                            }
+                                                        </style>
+                                        <a href="javascript:void(0);" onclick="copyInviteLink()" class="btn btn-primary waves-effect waves-light btn-sm">
+                                            Copy Invite Link <i class="mdi mdi-content-copy ms-1"></i>
+                                        </a>
+                                        <script>
+                                            function copyInviteLink() {
+                                                // Replace with the actual upline ID
+                                                const uplineId = "<%= user.fullname %>"; // Example: dynamically get this ID if needed
+                                                const inviteLink = `https://luxurpay.com/auth_signup?invitedby=${uplineId}`;
+
+                                                // Copy the invite link to the clipboard
+                                                navigator.clipboard.writeText(inviteLink).then(() => {
+                                                    alert("Invite link copied to clipboard!");
+                                                }).catch(err => {
+                                                    console.error("Failed to copy invite link: ", err);
+                                                });
+                                            }
+                                        </script>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th>Date</th>
+                                                        <th>Phone</th>
+                                                        <th>Actions</th> <!-- New column for delete action -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% if (downlines && downlines.length> 0) { %>
+                                                        <% downlines.forEach((downline, index)=> { %>
+                                                            <tr data-href="/dashboard/user/<%= downline._id %>">
+                                                                <th scope="row">
+                                                                    <%= index + 1 %>
+                                                                </th>
+                                                                <td>
+                                                                    <%= downline.fullname %>
+                                                                </td>
+                                                                <!-- Format date to "DD MMM, YYYY" -->
+                                                                <td>
+                                                                    <%= new Date(downline.createdAt).toLocaleDateString('en-GB', { day: '2-digit' , month: 'short' ,
+                                                                        year: 'numeric' }) %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= downline.phone %>
+                                                                </td>
+                                                                <td>
+                                                                    <!-- Delete icon with a link to the delete route -->
+                                                                    <a href="/dashboard/user/delete/<%= downline._id %>" class="text-danger"
+                                                                        onclick="return confirm('Are you sure you want to delete this user?');">
+                                                                        <i class="mdi mdi-delete-outline"></i> <!-- Delete icon -->
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                                <% } else { %>
+                                                                    <tr>
+                                                                        <td colspan="5" class="text-center">No downlines available</td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const rows = document.querySelectorAll('table.table-hover tbody tr');
+                                    rows.forEach(row => {
+                                        row.addEventListener('click', function () {
+                                            const href = row.getAttribute('data-href');
+                                            if (href) {
+                                                window.location.href = href; // Redirect to the specified URL
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+
+                        </div>
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by JK.M Ids
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right Sidebar -->
+        <%- include('./includes/footer.ejs') %>

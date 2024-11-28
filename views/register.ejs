@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+    
+<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/auth-register-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:52:45 GMT -->
+<head>
+        
+        <meta charset="utf-8" />
+        <title>Register  | LuxurPay </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Turn your time into cash and your dreams into reality with effortless earning on the go" name="description" />
+        <meta content="JK.M Ids" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- owl.carousel css -->
+        <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.carousel.min.css">
+
+        <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body class="auth-body-bg">
+        
+        <div>
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    
+                    <div class="col-xl-9">
+                        <div class="auth-full-bg pt-lg-5 p-4">
+                            <div class="w-100">
+                                <div class="bg-overlay"></div>
+                                <div class="d-flex h-100 flex-column">
+                    
+                                    <div class="p-4 mt-auto">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7">
+                                                <div class="text-center">
+                    
+                                                    <h4 class="mb-3"><i
+                                                            class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span
+                                                            class="text-primary">5k</span>+ Satisfied clients</h4>
+                    
+                                                    <div dir="ltr">
+                                                        <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-16 mb-4">" Thank you, LuxurPay, for your incredible
+                                                                        support in transforming my financial journey. Your platform has made
+                                                                        managing
+                                                                        finances simpler and stress-free. Grateful for the seamless
+                                                                        experience! "</p>
+                    
+                                                                    <div>
+                                                                        <h4 class="font-size-16 text-primary">Vivian K</h4>
+                                                                        <p class="font-size-14 mb-0">- LuxurPay User</p>
+                                                                    </div>
+                                                                </div>
+                    
+                                                            </div>
+                    
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-16 mb-4">" Huge thanks to LuxurPay for empowering me
+                                                                        with easy-to-use tools and insights! Your guidance has been
+                                                                        invaluable in
+                                                                        helping me achieve my financial goals. "</p>
+                    
+                                                                    <div>
+                                                                        <h4 class="font-size-16 text-primary">Ian Ndede</h4>
+                                                                        <p class="font-size-14 mb-0">- LuxurPay User</p>
+                                                                    </div>
+                                                                </div>
+                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-xl-3">
+                        <div class="auth-full-page-content p-md-5 p-4">
+                            <div class="w-100">
+
+                                <div class="d-flex flex-column h-100">
+                                    <div class="mb-4 mb-md-5">
+                                        <a href="/" class="d-block auth-logo" style="color: black; font-weight: bolder;">
+                                            <h5>
+                                                LuxurPay
+                                            </h5>
+                                        </a>
+                                    </div>
+                                    <div class="my-auto">
+                                        
+                                        <div>
+                                            <h5 class="text-primary">Register account</h5>
+                                        </div>
+            
+                                        <div class="mt-4">
+                                            <% if (message.length> 0) { %>
+                                                <div class="alert alert-danger text-center mb-4" role="alert">
+                                                    <%= message[0]%>.
+                                                </div>
+                                            <% } %>
+                                            <form id="signupForm" class="needs-validation" novalidate action="/auth_signup" method="POST">
+                
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Full Name</label>
+                                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" required>
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Fullname
+                                                    </div>  
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <label for="useremail" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="useremail" name="email" placeholder="Enter email" required>  
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Email
+                                                    </div>        
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="option-format">+254</span>
+                                                            <input type="text" class="form-control" name="phone"
+                                                                aria-describedby="option-format"
+                                                                placeholder="701.../110...">
+                                                </div>
+                        
+                                                <div class="mb-3">
+                                                    <label for="userpassword" class="form-label">Password</label>
+                                                    <input type="password" class="form-control" id="userpassword" name = "password" placeholder="Enter password" required>
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Password
+                                                    </div>       
+                                                </div>
+
+                                                <div>
+                                                    <p class="mb-0">By registering you agree to the LuxurPay <a href="#" class="text-primary">Terms of Use</a></p>
+                                                </div>
+                                                
+                                                <div class="mt-4 d-grid">
+                                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Register</button>
+                                                </div>
+
+                                            </form>
+
+                                            <div class="mt-5 text-center">
+                                                <p>Already have an account ? <a href="/auth_signin" class="fw-medium text-primary"> Login</a> </p>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script>
+            // Get the current URL query parameters
+            const queryParams = window.location.search;
+            console.log(queryParams);
+
+            // Get the form element
+            const form = document.getElementById('signupForm');
+
+            // Add the query parameters to the form's action URL dynamically
+            form.action = form.action + queryParams;
+        </script>
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+
+        <!-- owl.carousel js -->
+        <script src="assets/libs/owl.carousel/owl.carousel.min.js"></script>
+
+        <!-- validation init -->
+        <script src="assets/js/pages/validation.init.js"></script>
+
+        <!-- auth-2-carousel init -->
+        <script src="assets/js/pages/auth-2-carousel.init.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+    </body>
+
+<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/auth-register-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:52:45 GMT -->
+</html>

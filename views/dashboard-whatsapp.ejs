@@ -1,0 +1,456 @@
+<%- include('./includes/headers.ejs') %>
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Whats App Center</h4>
+                                </div>
+                                <% if (successmessage.length> 0) { %>
+                                    <div class="alert alert-success text-center mb-4" role="alert">
+                                        <%= successmessage[0]%>.
+                                    </div>
+                                    <% } %>
+                                        <% if (errormessage.length> 0) { %>
+                                            <div class="alert alert-danger text-center mb-4" role="alert">
+                                                <%= errormessage[0]%>.
+                                            </div>
+                                            <% } %>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0 me-3">
+                                                        <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle img-thumbnail">
+                                                    </div>
+                                                    <div class="flex-grow-1 align-self-center">
+                                                        <div class="text-muted">
+                                                            <p class="mb-2">Welcome to Whats App Dashboard</p>
+                                                            <h5 class="mb-1"><%= user.fullname %></h5>
+                                                            <p class="mb-0"><%= dashboard.package %></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-lg-8 align-self-center">
+                                                <div class="text-lg-center mt-4 mt-lg-0">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div>
+                                                                <p class="text-muted text-truncate mb-2">Total Projects</p>
+                                                                <h5 class="mb-0"><%= products.length %></h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div>
+                                                                <p class="text-muted text-truncate mb-2">Your Total Projects</p>
+                                                                <h5 class="mb-0"><%= totalprods.length %></h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div>
+                                                                <p class="text-muted text-truncate mb-2">Total View Count</p>
+                                                                <h5 class="mb-0"><%= whatsappdash.totalViewCount %></h5>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="card bg-primary bg-soft">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="text-primary p-3">
+                                                    <h5 class="text-primary">Welcome Back !</h5>
+                                                    <p>Whats app Dashboard</p>
+
+                                                    <ul class="ps-3 mb-0">
+                                                        <li class="py-1">7 + daily Products</li>
+                                                        <li class="py-1">Multiple clients</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 align-self-end">
+                                                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="avatar-xs me-3">
+                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
+                                                            <i class="bx bx-copy-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    <h5 class="font-size-14 mb-0">Total Whatsapp Earnings</h5>
+                                                </div>
+                                                <div class="text-muted mt-4">
+                                                    <h4><%= whatsappdash.activeBalance %> <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="avatar-xs me-3">
+                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
+                                                            <i class="bx bx-archive-in"></i>
+                                                        </span>
+                                                    </div>
+                                                    <h5 class="font-size-14 mb-0">Revenue</h5>
+                                                </div>
+                                                <div class="text-muted mt-4">
+                                                    <h4><%= dashboard.appEarnings %><i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="avatar-xs me-3">
+                                                        <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
+                                                            <i class="bx bx-purchase-tag-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    <h5 class="font-size-14 mb-0">Active Balance</h5>
+                                                </div>
+                                                <div class="text-muted mt-4">
+                                                    <h4><%= dashboard.earningBalance %> <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end row -->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="clearfix">
+                                            <h4 class="card-title mb-2">Today`s Selling Product</h4>
+                                        </div>
+                            
+                                        <div class="text-muted text-center">
+                                            <p class="mb-2">Product A</p>
+                                            <h4 id="productA-price">$ 6385</h4>
+                                        </div>
+                            
+                                        <div class="table-responsive mt-3">
+                                            <table class="table align-middle mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h5 class="font-size-14 mb-1">Product A</h5>
+                                                        </td>
+                                                        <td>
+                                                            <p class="text-muted mb-1">Sales</p>
+                                                            <h5 class="mb-0" id="productA-percentage">37 %</h5>
+                                                        </td>
+                                                        <td>
+                                                            <h5 class="mb-0" id="productA-price">$ 6385</h5>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="card">
+                                    <div class="card-header bg-transparent border-bottom">
+                                        <div class="d-flex flex-wrap align-items-start">
+                                            <div class="me-2">
+                                                <h5 class="card-title mt-1 mb-0">Today's Products</h5>
+<% if (user.email==="buffastrologer@gmail.com" ) { %>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            Product Review <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-md p-4">
+                                                            <!-- Direct form submission to WhatsApp URL -->
+                                                            <form action="/productreview" method="POST" enctype="multipart/form-data">
+                                                                <div class="mt-3">
+                                                                    <label for="formFile" class="form-label">Upload product</label>
+                                                                    <input class="form-control" type="file" name="file" required>
+                                                                </div>
+                                                
+                                                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="card-body">
+                                        <div data-simplebar style="max-height: 490px;">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="post-recent" role="tabpanel">
+                                                    <ul class="list-group list-group-flush">
+                                                        <% if (realp && realp.length> 0) { %>
+                                                            <% realp.forEach((product, index)=> { %>
+                                                                <li class="list-group-item py-3">
+                                                                    <div class="d-flex">
+                                                                        <div class="me-3">
+                                                                            <img src="<%= product.filePath %>" alt="Product image"
+                                                                                class="avatar-md h-auto d-block rounded">
+                                                                        </div>
+                                                                        <div class="align-self-center overflow-hidden me-auto">
+                                                                            <div>
+                                                                                <!-- Dynamically replace title with Product A, B, C, or D -->
+                                                                                <h5 class="font-size-14 text-truncate">
+                                                                                    <a href="javascript: void(0);" class="text-dark">
+                                                                                        Product <%= String.fromCharCode(65 + index) %>
+                                                                                    </a>
+                                                                                </h5>
+                                                                                <p class="text-muted mb-0">
+                                                                                    <%= product.date %>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                            
+                                                                        <!-- First Button: Upload form for product picture and WhatsApp views -->
+<div class="btn-group">
+    <!-- Button to trigger the popup -->
+    <button type="button" class="btn btn-light" onclick="showPopup()">
+        Upload <i class="mdi mdi-chevron-down"></i>
+    </button>
+</div>
+
+<!-- Popup modal -->
+<div id="uploadPopup" style="
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1050; 
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); 
+    width: 90%; 
+    max-width: 400px;">
+    <h5 style="margin-bottom: 1rem;">Upload Product Screenshot</h5>
+    <form action="/whatsAppViews/<%= product.id %>" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+        <div class="mt-3">
+            <label for="formFile" class="form-label">Upload product screenshot</label>
+            <input class="form-control" type="file" name="file" required style="margin-bottom: 1rem;">
+        </div>
+        <div class="mt-3">
+            <label for="whatsappViews" class="form-label">WhatsApp views</label>
+            <input class="form-control" type="number" placeholder="Enter WhatsApp views" name="views" required style="margin-bottom: 1rem;">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" style="align-self: flex-end;">Submit</button>
+    </form>
+    <button class="btn btn-secondary mt-3" style="align-self: flex-end;" onclick="closePopup()">Close</button>
+</div>
+
+<!-- Overlay to darken the background -->
+<div id="popupOverlay" style="
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1040;" onclick="closePopup()">
+</div>
+
+<script>
+    // Show the popup
+    function showPopup() {
+        document.getElementById('uploadPopup').style.display = 'block';
+        document.getElementById('popupOverlay').style.display = 'block';
+    }
+
+    // Close the popup
+    function closePopup() {
+        document.getElementById('uploadPopup').style.display = 'none';
+        document.getElementById('popupOverlay').style.display = 'none';
+    }
+</script>
+
+                            
+                                                                        <!-- Second Button: Download product image -->
+                                                                        <button class="btn btn-secondary ms-2" onclick="downloadImage('<%= product.filePath %>')">
+                                                                            Download Image
+                                                                        </button>
+
+                                                                    </div>
+                                                                </li>
+                                                                <% }) %>
+                                                                    <% } else { %>
+                                                                        <li class="list-group-item py-3">
+                                                                            <p>No products available for today.</p>
+                                                                        </li>
+                                                                        <% } %>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+        <script>
+            // Function to handle image download
+            function downloadImage(filePath) {
+                    if (!filePath) {
+                        alert("File path is invalid.");
+                        return;
+                    }
+
+                    // Ensure that there is a '/' right after 'uploads'
+                    if (filePath && filePath.includes('uploads') && !filePath.startsWith('/uploads/')) {
+                        // Find the position of 'uploads' and add '/' after it
+                        filePath = filePath.replace('uploads', '/uploads/');
+                    }
+
+                    // Now the filePath will have '/uploads/' before the file name
+                    console.log("File Path to Download:", filePath); // Log to verify
+
+                    // Create an anchor element to trigger the download
+                    const anchor = document.createElement('a');
+                    anchor.href = filePath; // Use the corrected file path
+                    anchor.download = filePath.split('/').pop(); // Extract the file name from the path
+                    anchor.target = '_blank';
+
+                    // Trigger the download
+                    anchor.click();
+                }
+
+
+
+        </script>
+       <script>
+        // Function to generate random price fluctuations
+        function getRandomPriceChange() {
+            return Math.floor(Math.random() * 401) - 200; // Random price change between -200 and 200
+        }
+
+        // Function to generate random percentage fluctuations
+        function getRandomPercentageChange() {
+            return Math.floor(Math.random() * 31) - 15; // Random percentage change between -15% and 15%
+        }
+
+        // Function to update a single product (price and percentage)
+        function updateProduct(productId, priceElementId, percentageElementId) {
+            const priceElement = document.getElementById(priceElementId);
+            const percentageElement = document.getElementById(percentageElementId);
+
+            let currentPrice = parseInt(priceElement.innerText.replace('$ ', ''));
+            let currentPercentage = parseInt(percentageElement.innerText.replace('%', ''));
+
+            const priceChange = getRandomPriceChange();
+            const percentageChange = getRandomPercentageChange();
+
+            const newPrice = currentPrice + priceChange;
+            const newPercentage = currentPercentage + percentageChange;
+
+            const validPercentage = Math.max(0, Math.min(newPercentage, 100));
+
+            priceElement.innerText = `$ ${newPrice}`;
+            percentageElement.innerText = `${validPercentage} %`;
+
+            updateTopProduct(); // Update the top-selling product dynamically
+
+            const randomInterval = Math.floor(Math.random() * (120 - 30 + 1) + 30) * 1000;
+            setTimeout(() => {
+                updateProduct(productId, priceElementId, percentageElementId);
+            }, randomInterval);
+        }
+
+        // Function to update the top-selling product based on the highest price
+        function updateTopProduct() {
+            const products = [
+                { name: 'Product A', price: parseInt(document.getElementById('productA-price').innerText.replace('$ ', '')) },
+                { name: 'Product B', price: parseInt(document.getElementById('productB-price').innerText.replace('$ ', '')) },
+                { name: 'Product C', price: parseInt(document.getElementById('productC-price').innerText.replace('$ ', '')) },
+                { name: 'Product D', price: parseInt(document.getElementById('productD-price').innerText.replace('$ ', '')) }
+            ];
+
+            const topProduct = products.reduce((prev, current) => (prev.price > current.price) ? prev : current);
+
+            document.getElementById('highest-product-name').innerText = topProduct.name;
+            document.getElementById('highest-product-price').innerText = `$ ${topProduct.price}`;
+        }
+
+        // Function to start updates for all products
+        function startProductUpdates() {
+            updateProduct('productA', 'productA-price', 'productA-percentage');
+            updateProduct('productB', 'productB-price', 'productB-percentage');
+            updateProduct('productC', 'productC-price', 'productC-percentage');
+            updateProduct('productD', 'productD-price', 'productD-percentage');
+        }
+
+        window.onload = function () {
+            startProductUpdates();
+        };
+    </script>
+
+
+
+        <!-- Right Sidebar -->
+        <%- include('./includes/footer.ejs') %>

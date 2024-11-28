@@ -1,0 +1,364 @@
+<%- include('./includes/headers.ejs') %>
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Wallet</h4>
+                                    <% if (successmessage.length> 0) { %>
+                                        <div class="alert alert-success text-center mb-4" role="alert">
+                                            <%= successmessage[0]%>.
+                                        </div>
+                                        <% } %>
+                                            <% if (errormessage.length> 0) { %>
+                                                <div class="alert alert-danger text-center mb-4" role="alert">
+                                                    <%= errormessage[0]%>.
+                                                </div>
+                                                <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-4">
+                                                <i class="mdi mdi-account-circle text-primary h1"></i>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <div class="text-muted">
+                                                    <h5><%= user.fullname %></h5>
+                                                    <p class="mb-1"><%= user.email %></p>
+                                                    <p class="mb-0">Id no: #<%= user._id %></p>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body border-top">
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <p class="text-muted mb-2">Available Balance</p>
+                                                    <h5>KES<%= dashboard.earningBalance %></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="text-sm-end mt-4 mt-sm-0">
+                                                    <p class="text-muted mb-2">Withdawals</p>
+                                                    <h5>- KES <%= dashboard.withdrawals%>   <span class="badge bg-success ms-1 align-bottom">+ 1.3 %</span></h5>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body border-top">
+                                        <p class="text-muted mb-4">In App Finances</p>
+                                        <div class="text-center">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <div class="font-size-24 text-primary mb-2">
+                                                            <i class="bx bx-send"></i>
+                                                        </div>
+                                    
+                                                        <p class="text-muted mb-2">Deposit Balance</p>
+                                                        <h5>KES <%= dashboard.depositeBalance %> </h5>
+    
+                                                        <div class="mt-3">
+                                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm w-md"onclick="showDepositForm()">Deposit</a>
+                                                        </div>
+                                                        <div id="depositForm" style="display: none; margin-top: 10px;">
+                                                            <form id="depositFormElement" onsubmit="submitDepositForm(event)">
+                                                                <div>
+                                                                    <label for="amount">Amount:</label>
+                                                                    <input type="number" id="amount" name="amount" required>
+                                                                </div>
+                                                                <div>
+                                                                    <label for="Phone">Phone:</label>
+                                                                    <input type="text" id="phone" name="phone"value="<%= user.phone %>" readonly>
+                                                                </div>
+                                                                <div>
+                                                                    <button type="submit" class="btn btn-success btn-sm w-md">Submit</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <script>
+                                                            // Show the deposit form
+                                                            function showDepositForm() {
+                                                                document.getElementById('depositForm').style.display = 'block';
+                                                            }
+
+                                                            // Handle form submission and add query parameters
+                                                            function submitDepositForm(event) {
+                                                                event.preventDefault(); // Prevent form default submission behavior
+
+                                                                const form = document.getElementById('depositFormElement');
+                                                                const formData = new FormData(form);
+
+                                                                // Construct the query parameters
+                                                                const queryParams = new URLSearchParams(formData).toString();
+
+                                                                // Redirect or use AJAX call here
+								const baseUrl = "/payment/package"
+                                                                const redirectUrl = `${baseUrl}?${queryParams}`;
+                                                                window.location.href = redirectUrl; // Redirect with query parameters
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="mt-4 mt-sm-0">
+                                                        <div class="font-size-24 text-primary mb-2">
+                                                            <i class="bx bx-import"></i>
+                                                        </div>
+                                    
+                                                        <p class="text-muted mb-2">Revenue</p>
+                                                        <h5>KES <%= dashboard.appEarnings %></h5>
+
+                                                        <% if (buytrans.length > 0 ){ %>
+                                                            <% if (dashboard.package !=="Basic" ) { %>
+                                                                <a href="/cashback" class="btn btn-primary btn-sm w-md">Get Cash Back</a>
+                                                            <% } %>
+                                                        <% } %>
+                                                        
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="mt-4 mt-sm-0">
+                                                        <div class="font-size-24 text-primary mb-2">
+                                                            <i class="bx bx-wallet"></i>
+                                                        </div>
+                                    
+                                                        <p class="text-muted mb-2">Withdawable Balance</p>
+                                                        <h5>KES <%= dashboard.earningBalance %></h5>
+                                                        <% if (dashboard.earningBalance > 0) { %>
+                                                        <div class="mt-3">
+                                                            <!-- The Withdraw button -->
+                                                        
+                                                            <a href="javascript:void(0);" class="btn btn-primary btn-sm w-md" onclick="handleWithdraw()">Withdraw</a>
+                                                        </div>
+                                                        <% } %>
+                                                        
+                                                        
+                                                        <!-- Popups -->
+                                                        <div id="popupContainer"
+                                                            style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -20%); padding: 20px; border: 1px solid #ccc; background: white; z-index: 1000; width: 300px; text-align: center;">
+                                                            <p id="popupMessage"></p>
+                                                            <p id="popupAmount" style="font-weight: bold; display: none;"></p>
+                                                            <button id="completeButton" class="btn btn-success btn-sm w-md" onclick="completeAction()">Complete</button>
+                                                            <button class="btn btn-secondary btn-sm w-md" onclick="closePopup()">Cancel</button>
+                                                        </div>
+                                                        
+                                                        <script>
+                                                            // Simulated dashboard object for demonstration purposes
+                                                            const dashboard = {
+                                                                package: "<%= dashboard.package %>" // Example package: 'Money Pass', 'Activity Plus', 'Premium Plus'
+                                                            };
+							   const packageType =  dashboard.package;
+
+                                                            function handleWithdraw() {
+                                                                const popupContainer = document.getElementById("popupContainer");
+                                                                const popupMessage = document.getElementById("popupMessage");
+                                                                const popupAmount = document.getElementById("popupAmount");
+                                                                const completeButton = document.getElementById("completeButton");
+
+                                                                // Deter6722282db89a811cf9993ce7mine the popup content based on the package
+                                                                if (packageType == 'Basic' || packageType == 'Platinum' || packageType == 'Premium_ads') {
+                                                                    popupMessage.textContent = "Purchase Money Pass to proceed.";
+                                                                    popupAmount.textContent = "Amount: KES 9000";
+                                                                    popupAmount.style.display = "block";
+                                                                } 
+
+                                                                // Show the popup
+                                                                popupContainer.style.display = "block";
+                                                            }
+
+                                                            function completeAction() {
+                                                                if (packageType !== 'Basic' || packageType !== 'Platinum' || packageType !== 'Premium_ads') {
+                                                                    // Send a POST request to the /withdraw endpoint
+                                                                    fetch('/withdraw', {
+                                                                        method: 'POST',
+                                                                        headers: {
+                                                                            'Content-Type': 'application/json'
+                                                                        },
+                                                                        body: JSON.stringify({
+                                                                            package: dashboard.package, // Send the package information if needed
+                                                                            timestamp: new Date().toISOString() // Include additional data if required
+                                                                        })
+                                                                    })
+                                                                        .then(response => {
+                                                                            if (response.ok) {
+                                                                                alert("Withdrawal completed successfully!");
+										window.location.reload()
+                                                                            } else {
+                                                                                alert("Failed to complete withdrawal. Please try again.");
+                                                                            }
+                                                                            return response.json();
+                                                                        })
+                                                                        .catch(error => {
+                                                                            console.error("Error during withdrawal request:", error);
+                                                                            alert("An error occurred. Please check your network and try again.");
+                                                                        });
+                                                                }else {
+                                                                    function redirectToPayment(option, amount) {
+                                                                        // Construct the URL with query parameters
+                                                                        const baseUrl = "/payment/package";
+                                                                        const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                                                        // Redirect the user
+                                                                        window.location.href = url;
+                                                                    }
+                                                                   redirectToPayment("Money_pass",9000)
+                                                                }
+                                                                closePopup();
+                                                            }
+
+                                                            function closePopup() {
+                                                                // Close the popup
+                                                                document.getElementById("popupContainer").style.display = "none";
+                                                            }
+                                                        </script>
+                                                        
+                                                        <style>
+                                                            /* Optional styling for the popup */
+                                                            .btn {
+                                                                display: inline-block;
+                                                                margin: 5px;
+                                                                padding: 10px;
+                                                                text-align: center;
+                                                            }
+                                                        </style>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Transactions</h4>
+                                        <div class="table-responsive">
+                                            <table class="table align-middle table-nowrap mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th style="width: 20px;">
+                                                            <div class="form-check font-size-16 align-middle">
+                                                                <input class="form-check-input" type="checkbox" id="transactionCheckAll">
+                                                                <label class="form-check-label" for="transactionCheckAll"></label>
+                                                            </div>
+                                                        </th>
+                                                        <th class="align-middle">Order ID</th>
+                                                        <th class="align-middle">Billing Name</th>
+                                                        <th class="align-middle">Date</th>
+                                                        <th class="align-middle">Total</th>
+                                                        <th class="align-middle">Payment Status</th>
+                                                        <th class="align-middle">Payment Method</th>
+                                                        <th class="align-middle">Phone</th>
+                                                        <th class="align-middle">Transaction Type</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% if (transactions.length> 0) { %>
+                                                        <% transactions.forEach(transaction=> { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="form-check font-size-16">
+                                                                        <input class="form-check-input" type="checkbox">
+                                                                        <label class="form-check-label"></label>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a href="javascript: void(0);" class="text-body fw-bold">
+                                                                        <%= transaction.orderId %>
+                                                                    </a></td>
+                                                                <td>
+                                                                    <%= transaction.billingName %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= transaction.date %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= transaction.total %>
+                                                                </td>
+                                                                <td>
+                                                                    <span
+                                                                        class="badge badge-pill badge-soft-<%= transaction.status === 'Paid' ? 'success' : transaction.status === 'Chargeback' ? 'danger' : 'warning' %> font-size-11">
+                                                                        <%= transaction.status %>
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <%= transaction.paymentMethod %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= transaction.Phone %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= transaction.Transactiontype %>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                                <% } else { %>
+                                                                    <tr>
+                                                                        <td colspan="8" class="text-center">No transactions done yet.</td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by JK.M Ids
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <%- include('./includes/footer.ejs') %>

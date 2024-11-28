@@ -1,0 +1,187 @@
+<%- include('./includes/headers.ejs') %>
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Packages</h4>
+
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="text-center mb-5">
+                                    <h4>Choose your package plan</h4>
+                                    <p class="text-muted">To achieve this, it would be necessary to have the package plan amount  in your payment method. Also KES 5000 sign up bonus guaranteed</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card plan-box">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <h5>BASIC PACKAGE</h5>
+                                                <p class="text-muted">Smallest Plan</p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-3">
+                                                <i class="bx bx-walk h1 text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <div class="py-4">
+                                            <h2><sup><small>KES</small></sup> 1000/ <span class="font-size-13">Only</span></h2>
+                                        </div>
+                                        <div class="text-center plan-btn">
+                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
+                                                onclick="redirectToPayment('Basic', 1000)">
+                                                Select Plan
+                                            </a>
+                                            
+                                            <script>
+                                                function redirectToPayment(option, amount) {
+                                                    // Construct the URL with query parameters
+                                                    const baseUrl = "/payment/package";
+                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                                    // Redirect the user to the payment page
+                                                    window.location.href = url;
+                                                }
+                                            </script>
+                                        </div>
+
+                                        <div class="plan-features mt-5">
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Affiliates Bonus</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> No Ads Earnings</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> No CashBack </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card plan-box">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <h5>PLATINUM </h5>
+                                                <p class="text-muted">Cashback Package</p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-3">
+                                                <i class="bx bx-run h1 text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <div class="py-4">
+                                            <h2><sup><small>KES</small></sup> 2500/ <span class="font-size-13">Only</span></h2>
+                                        </div>
+                                        <div class="text-center plan-btn">
+                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
+                                                onclick="redirectToPayment('Platinum', 2500)">
+                                                Select Plan
+                                            </a>
+                                            
+                                            <script>
+                                                function redirectToPayment(option, amount) {
+                                                    // Construct the URL with query parameters
+                                                    const baseUrl = "/payment/package";
+                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                                    // Redirect the user to the payment page
+                                                    window.location.href = url;
+                                                }
+                                            </script>
+                                        </div>
+
+                                        <div class="plan-features mt-5">
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Free Live Support</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> BI Weekly Ads Earnings</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> 5000 Cashback</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card plan-box">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <h5>PREMIUM ADS</h5>
+                                                <p class="text-muted">Best Ads Package</p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-3">
+                                                <i class="bx bx-cycling h1 text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <div class="py-4">
+                                            <h2><sup><small>KES</small></sup> 4800/ <span class="font-size-13">Only(10K Cashback) </span></h2>
+                                        </div>
+                                        <div class="text-center plan-btn">
+                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
+                                                onclick="redirectToPayment('Premium_ads', 4800)">
+                                                Select Plan
+                                            </a>
+                                            
+                                            <script>
+                                                function redirectToPayment(option, amount) {
+                                                    // Construct the URL with query parameters
+                                                    const baseUrl = "/payment/package";
+                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+                                                    // Redirect the user
+                                                    window.location.href = url;
+                                                }
+                                            </script>
+                                        </div>
+
+                                        <div class="plan-features mt-5">
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Free Live Support</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Unlimited Ads Revenue</p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
+                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Writing Accounts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by JK.M Ids
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+<%- include('./includes/footer.ejs') %>
