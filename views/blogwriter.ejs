@@ -1,96 +1,146 @@
 <%- include('./includes/headers.ejs') %>
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content">
+    <div class="dashboard-main-body">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+  <h6 class="fw-semibold mb-0">Add Blog</h6>
+  <ul class="d-flex align-items-center gap-2">
+    <li class="fw-medium">
+      <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+        Dashboard
+      </a>
+    </li>
+    <li>-</li>
+    <li class="fw-medium">Add Blog</li>
+  </ul>
+</div>
 
-                <div class="page-content">
-                    <div class="container-fluid">
-
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Form Wizard</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Write A Blog</h4>
-
-                                        <div id="basic-example">
-                                            <!-- Seller Details -->
-                                            <h3>Blog</h3>
-                                            <section>
-                                                <form method="post" action="/blogs/create">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="mb-3">
-                                                                <label for="basicpill-firstname-input">Title</label>
-                                                                <input type="text" class="form-control" name="title" id="basicpill-firstname-input" placeholder="Enter Your Title">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="mb-3">
-                                                                <label for="basicpill-lastname-input">Image URL</label>
-                                                                <input type="text" class="form-control" name="image" id="basicpill-lastname-input" placeholder="Enter The Image URL">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="mb-3">
-                                                                <label for="basicpill-address-input">Blog Content</label>
-                                                                <textarea id="basicpill-address-input" name="content" class="form-control" rows="12" placeholder="Write The Content"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <button class="btn btn-primary" type="submit">
-                                                            <i class="bx bx-plus align-middle"></i> Add New Blog
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </section>
-                                        </div>
-
-                                    </div>
-                                    <!-- end card body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-                
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by JK.M Ids
-                                </div>
-                            </div>
-                        </div>
+        <div class="row gy-4">
+            <div class="col-lg-8">
+                <div class="card mt-24">
+                    <div class="card-header border-bottom">
+                        <h6 class="text-xl mb-0">Add New Post</h6>
                     </div>
-                </footer>
+                    <div class="card-body p-24">
+                        <form method="post" action="/blogs/create">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="mb-3">
+                                <label for="basicpill-firstname-input">Title</label>
+                                <input type="text" class="form-control" name="title" id="basicpill-firstname-input"
+                                  placeholder="Enter Your Title">
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="mb-3">
+                                <label for="basicpill-lastname-input">Image URL</label>
+                                <input type="text" class="form-control" name="image" id="basicpill-lastname-input"
+                                  placeholder="Enter The Image URL">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="mb-3">
+                                <label for="basicpill-address-input">Blog Content</label>
+                                <textarea id="basicpill-address-input" name="content" class="form-control" rows="12"
+                                  placeholder="Write The Content"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <button class="btn btn-primary" type="submit">
+                              <i class="bx bx-plus align-middle"></i> Add New Blog
+                            </button>
+                          </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <!-- end main content-->
-
+            <!-- Sidebar Start -->
         </div>
-        <!-- END layout-wrapper -->
+    </div>
+  
+    <footer class="d-footer">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto">
+      <p class="mb-0">© 2024 Advision. All Rights Reserved.</p>
+    </div>
+    <div class="col-auto">
+      <p class="mb-0">Made by <span class="text-primary-600">AdKe</span></p>
+    </div>
+  </div>
+</footer>
+  </main>
+  
+  <!-- jQuery library js -->
+  <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+  <!-- Apex Chart js -->
+  <script src="assets/js/lib/apexcharts.min.js"></script>
+  <!-- Data Table js -->
+  <script src="assets/js/lib/dataTables.min.js"></script>
+  <!-- Iconify Font js -->
+  <script src="assets/js/lib/iconify-icon.min.js"></script>
+  <!-- jQuery UI js -->
+  <script src="assets/js/lib/jquery-ui.min.js"></script>
+  <!-- Vector Map js -->
+  <script src="assets/js/lib/jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="assets/js/lib/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- Popup js -->
+  <script src="assets/js/lib/magnifc-popup.min.js"></script>
+  <!-- Slick Slider js -->
+  <script src="assets/js/lib/slick.min.js"></script>
+  <!-- prism js -->
+  <script src="assets/js/lib/prism.js"></script>
+  <!-- file upload js -->
+  <script src="assets/js/lib/file-upload.js"></script>
+  <!-- audioplayer -->
+  <script src="assets/js/lib/audioplayer.js"></script>
+  
+  <!-- main js -->
+  <script src="assets/js/app.js"></script>
 
-<%- include('./includes/footer.ejs') %>
+<script src="assets/js/editor.highlighted.min.js"></script>
+<script src="assets/js/editor.quill.js"></script>
+<script src="assets/js/editor.katex.min.js"></script>
+
+<script>
+    // Editor Js Start
+    const quill = new Quill('#editor', {
+      modules: {
+        syntax: true,
+        toolbar: '#toolbar-container',
+      },
+      placeholder: 'Compose an epic...',
+      theme: 'snow',
+    });
+    // Editor Js End
+  
+
+    // =============================== Upload Single Image js start here ================================================
+    const fileInput = document.getElementById("upload-file");
+    const imagePreview = document.getElementById("uploaded-img__preview");
+    const uploadedImgContainer = document.querySelector(".uploaded-img");
+    const removeButton = document.querySelector(".uploaded-img__remove");
+
+    fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length) {
+        const src = URL.createObjectURL(e.target.files[0]);
+        imagePreview.src = src;
+        uploadedImgContainer.classList.remove('d-none');
+        }
+    });
+    removeButton.addEventListener("click", () => {
+        imagePreview.src = "";
+        uploadedImgContainer.classList.add('d-none');
+        fileInput.value = ""; 
+    });
+    // =============================== Upload Single Image js End here ================================================
+
+  </script>
+
+</body>
+
+<!-- Mirrored from Advision.AdKe.com/demo/add-blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Nov 2024 07:34:01 GMT -->
+</html>

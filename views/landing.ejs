@@ -1,551 +1,162 @@
-<!doctype html>
-<html lang="en">
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 
-    
-<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/crypto-ico-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:51:15 GMT -->
+<!-- Mirrored from Advision.AdKe.com/demo/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Nov 2024 07:34:04 GMT -->
 <head>
-        
-        <meta charset="utf-8" />
-        <title>LuxurPay</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Turn your time into cash and your dreams into reality with effortless earning on the go" name="description" />
-        <meta content="JK.M Ids" name="author" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- owl.carousel css -->
-        <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.carousel.min.css">
-
-        <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.theme.default.min.css">
-
-        <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
-    </head>
-
-    <body data-bs-spy="scroll" data-bs-target="#topnav-menu" data-bs-offset="60">
-
-        <nav class="navbar navbar-expand-lg navigation fixed-top sticky">
-            <div class="container">
-                <a href="/" class="d-block auth-logo" style="color: whitesmoke; font-weight: bolder;">
-                    <h5>
-                        LuxurPay
-                    </h5>
-                </a>
-
-                <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
-                    <i class="fa fa-fw fa-bars"></i>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="topnav-menu-content">
-                    <ul class="navbar-nav ms-auto" id="topnav-menu" >
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/dashboard">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#roadmap">Roadmap</a>
-                        </li>
-                    </ul>
-
-                    <div class="my-2 ms-lg-2">
-                        <a href="/dashboard" class="btn btn-outline-success w-xs">Get In</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- hero section start -->
-        <section class="section hero-section bg-ico-hero" id="home">
-            <div class="bg-overlay bg-primary"></div>
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="text-white-50">
-                            <h1 class="text-white fw-semibold mb-3 hero-title">LuxurPay - One stop shop for your success</h1>
-                            <p class="font-size-14">Take control of your future—unlock smarter tools, guidance, and resources to achieve financial freedom</p>
-                            <div class="d-flex flex-wrap gap-2 mt-4">
-                                <a href="/dashboard" class="btn btn-success">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- hero section end -->
-        
-        <!-- currency price section start -->
-        <section class="section bg-white p-0">
-            
-            <!-- end container -->
-        </section>
-        <!-- currency price section end -->
-
-        <!-- about section start -->
-        <section class="section pt-4 bg-white" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center mb-5">
-                            <div class="small-title">About us</div>
-                            <h4>What is LuxurPay?</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advision</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
+  <!-- remix icon font css  -->
+  <link rel="stylesheet" href="assets/css/remixicon.css">
+  <!-- BootStrap css -->
+  <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+  <!-- Apex Chart css -->
+  <link rel="stylesheet" href="assets/css/lib/apexcharts.css">
+  <!-- Data Table css -->
+  <link rel="stylesheet" href="assets/css/lib/dataTables.min.css">
+  <!-- Text Editor css -->
+  <link rel="stylesheet" href="assets/css/lib/editor-katex.min.css">
+  <link rel="stylesheet" href="assets/css/lib/editor.atom-one-dark.min.css">
+  <link rel="stylesheet" href="assets/css/lib/editor.quill.snow.css">
+  <!-- Date picker css -->
+  <link rel="stylesheet" href="assets/css/lib/flatpickr.min.css">
+  <!-- Calendar css -->
+  <link rel="stylesheet" href="assets/css/lib/full-calendar.css">
+  <!-- Vector Map css -->
+  <link rel="stylesheet" href="assets/css/lib/jquery-jvectormap-2.0.5.css">
+  <!-- Popup css -->
+  <link rel="stylesheet" href="assets/css/lib/magnific-popup.css">
+  <!-- Slick Slider css -->
+  <link rel="stylesheet" href="assets/css/lib/slick.css">
+  <!-- prism css -->
+  <link rel="stylesheet" href="assets/css/lib/prism.css">
+  <!-- file upload css -->
+  <link rel="stylesheet" href="assets/css/lib/file-upload.css">
   
-                        <div class="text-muted">
-                            <h4>Best cryptocurrency and Financial Needs</h4>
-                            <p>At LuxurPay, we are dedicated to helping you achieve financial success through smart tools and personalized
-                            guidance. Our mission is to simplify money management and empower you to make confident financial decisions. With
-                            innovative solutions and trusted resources, we aim to bridge the gap between where you are and where you want to be.
-                            Together, let's build a brighter financial future tailored to your goals..</p>
-                            <p class="mb-4">We believe hat together we can achieve.</p>
+  <link rel="stylesheet" href="assets/css/lib/audioplayer.css">
+  <!-- main css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+  <body>
 
-                            
-                            
-                            <div class="row mt-4">
-                                <div class="col-lg-4 col-6">
-                                    <div class="mt-4">
-                                        <h4>KES 2.16M</h4>
-                                        <p>Invest amount</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-6">
-                                    <div class="mt-4">
-                                        <h4>1653</h4>
-                                        <p>Users</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="custom-bg">
+    <div class="container container--xl">
+        <div class="d-flex align-items-center justify-content-between py-24">
+            <a href="index.html" class="">
+                ADVISION
+            </a>
+            <a href="/dashboard" class="btn btn-outline-primary-600 text-sm"> Go To Home </a>
+        </div>
 
-                    <div class="col-lg-6 ms-auto">
-                        <div class="mt-4 mt-lg-0">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card border">
-                                        <div class="card-body">
-                                            <div class="mb-3">
-                                                <i class="mdi mdi-bitcoin h2 text-success"></i>
-                                            </div>
-                                            <h5>Cryptocurrency</h5>
-                                            <p class="text-muted mb-0">We have one of the best platforms for automated trades on crypto while offering good money tracking</p>
-        
-                                        </div>
-                                        <div class="card-footer bg-transparent border-top text-center">
-                                            <a href="/dashboard" class="text-primary">Get Started</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card border mt-lg-5">
-                                        <div class="card-body">
-                                            <div class="mb-3">
-                                                <i class="mdi mdi-wallet-outline h2 text-success"></i>
-                                            </div>
-                                            <h5>Wallet</h5>
-                                            <p class="text-muted mb-0">We offet good withdrawal rates and payment is on time</p>
-        
-                                        </div>
-                                        <div class="card-footer bg-transparent border-top text-center">
-                                            <a href="/wallet" class="text-primary">Try It</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <hr class="my-5">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="owl-carousel owl-theme clients-carousel" id="clients-carousel" dir="ltr">
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/1.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/2.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/3.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/4.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/5.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="client-images">
-                                    <img src="assets/images/clients/6.png" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- about section end -->
-
-        <!-- Features start -->
-        <section class="section" id="features">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center mb-5">
-                            <div class="small-title">Features</div>
-                            <h4>Key features of the product</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row align-items-center pt-4">
-                    <div class="col-md-6 col-sm-8">
-                        <div>
-                            <img src="assets/images/crypto/features-img/img-1.png" alt="" class="img-fluid mx-auto d-block">
-                        </div>
-                    </div>
-                    <div class="col-md-5 ms-auto">
-                        <div class="mt-4 mt-md-auto">
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="features-number fw-semibold display-4 me-3">01</div>
-                                <h4 class="mb-0">Games</h4>
-                            </div>
-                            <p class="text-muted">We have state of the art gaming environment  with legitimate odds with good graphics and easy to understand instructions.</p>
-                            <div class="text-muted mt-4">
-                                <p class="mb-2"><i class="mdi mdi-circle-medium text-success me-1"></i>Good game experience</p>
-                                <p><i class="mdi mdi-circle-medium text-success me-1"></i>Good profits</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row align-items-center mt-5 pt-md-5">
-                    <div class="col-md-5">
-                        <div class="mt-4 mt-md-0">
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="features-number fw-semibold display-4 me-3">02</div>
-                                <h4 class="mb-0">Trading Lessons</h4>
-                            </div>
-                            <p class="text-muted"> We have amaizing trading course that will teach you everything  trading  usng live examples so that you get a feel  of it. .</p>
-                            <div class="text-muted mt-4">
-                                <p class="mb-2"><i class="mdi mdi-circle-medium text-success me-1"></i>Beginer To Advance course</p>
-                                <p><i class="mdi mdi-circle-medium text-success me-1"></i>How to create your bots for algorthimic trades</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6  col-sm-8 ms-md-auto">
-                        <div class="mt-4 me-md-0">
-                            <img src="assets/images/crypto/features-img/img-2.png" alt="" class="img-fluid mx-auto d-block">
-                        </div>
-                    </div>
+        <div class="py-res-120">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-32 max-w-1000-px">Your means to creating a great future. Join the revolution</h3>
+                    <p class="text-neutral-500 max-w-700-px text-lg">We have out of this world features  that are guaranteed to amaze and surpas your expectations. Join us today</p>
                     
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- Features end -->
-
-        <!-- Roadmap start -->
-        <section class="section bg-white" id="roadmap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center mb-5">
-                            <div class="small-title">Timeline</div>
-                            <h4>Our Roadmap</h4>
-                        </div>
+                    <div class="mt-24 max-w-500-px text-start">
+                        <span class="fw-semibold text-neutral-600 text-lg text-hover-neutral-600">Get a head start in your financial vision?</span>
+                        <form action="#" class="mt-16 d-flex gap-16 flex-sm-row flex-column">
+                            <a href = "/auth_signup"class="btn btn-primary-600 px-24 flex-shrink-0 d-flex align-items-center justify-content-center gap-8"> 
+                                <i class="ri-notification-2-line"></i> Get Started
+                            </a>
+                        </form>
                     </div>
                 </div>
-                <!-- end row -->
 
-                <div class="row mt-4">
-                    <div class="col-lg-12">
-                        <div class="hori-timeline" dir="ltr">
-                            <div class="owl-carousel owl-theme events navs-carousel" id="timeline-carousel">
-                                <div class="item event-list">
-                                    <div>
-                                        <div class="event-date">
-                                            <div class="text-primary mb-1">December, 2023</div>
-                                            <h5 class="mb-4"> Platform Idea</h5>
-                                        </div>
-                                        <div class="event-down-icon">
-                                            <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
-                                        </div>
-
-                                        <div class="mt-3 px-3">
-                                            <p class="text-muted">It will be as simple as occidental.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item event-list">
-                                    <div>
-                                        <div class="event-date">
-                                            <div class="text-primary mb-1">January, 2024</div>
-                                            <h5 class="mb-4">Research on project</h5>
-                                        </div>
-                                        <div class="event-down-icon">
-                                            <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
-                                        </div>
-
-                                        <div class="mt-3 px-3">
-                                            <p class="text-muted">We wanted to gain knowedge  for the perfect platform .</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item event-list active">
-                                    <div>
-                                        <div class="event-date">
-                                            <div class="text-primary mb-1">February, 2024</div>
-                                            <h5 class="mb-4">Platform Design</h5>
-                                        </div>
-                                        <div class="event-down-icon">
-                                            <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
-                                        </div>
-
-                                        <div class="mt-3 px-3">
-                                            <p class="text-muted">We wanted our platform to be simple and sophisticated.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item event-list">
-                                    <div>
-                                        <div class="event-date">
-                                            <div class="text-primary mb-1">March, 2024</div>
-                                            <h5 class="mb-4">Development</h5>
-                                        </div>
-                                        <div class="event-down-icon">
-                                            <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
-                                        </div>
-
-                                        <div class="mt-3 px-3">
-                                            <p class="text-muted">We have  one of the est trading platform in the market.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                               
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- Roadmap end -->
-
-        <!-- Team start -->
-        <!-- Team end -->
-
-        <!-- Blog start -->
-        <section class="section bg-white" id="news">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center mb-5">
-                            <div class="small-title">Blog</div>
-                            <h4>Latest News</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row">
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="blog-box mb-4 mb-xl-0">
-                            <div class="position-relative">
-                                <img src="assets/images/crypto/blog/img-1.jpg" alt="" class="rounded img-fluid mx-auto d-block">
-                                <div class="badge bg-success blog-badge font-size-11">Cryptocurrency</div>
-                            </div>
-
-                            <div class="mt-4 text-muted">
-                                <p class="mb-2"><i class="bx bx-calendar me-1"></i> 04 Nov, 2024</p>
-                                <h5 class="mb-3">Challanging Centralised Banking</h5>
-                                <p>What will be a world without  a central bank? The idea my be absurd... </p>
-    
-                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="blog-box mb-4 mb-xl-0">
-
-                            <div class="position-relative">
-                                <img src="assets/images/crypto/blog/img-2.jpg" alt="" class="rounded img-fluid mx-auto d-block">
-                                <div class="badge bg-success blog-badge font-size-11">Cryptocurrency</div>
-                            </div>
-
-                            <div class="mt-4 text-muted">
-                                <p class="mb-2"><i class="bx bx-calendar me-1"></i> 12 Nov, 2020</p>
-                                <h5 class="mb-3">Bitcoin Shooting</h5>
-                                <p>The best thing to do is to get yourself some bitcoin, but why?...</p>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="blog-box mb-4 mb-xl-0">
-                            <div class="position-relative">
-                                <img src="assets/images/crypto/blog/img-3.jpg" alt="" class="rounded img-fluid mx-auto d-block">
-                                <div class="badge bg-success blog-badge font-size-11">Cryptocurrency</div>
-                            </div>
-
-                            <div class="mt-4 text-muted">
-                                <p class="mb-2"><i class="bx bx-calendar me-1"></i> 06 Nov, 2024</p>
-                                <h5 class="mb-3">seamless Transactions</h5>
-                                <p>I have had an amazing experience with transacting bitcoin....</p>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- Blog end -->
-        
-        <!-- Faqs start -->
-        
-        
-
-        <!-- Footer start -->
-        <footer class="landing-footer">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="mb-4 mb-lg-0">
-                            <h5 class="mb-3 footer-list-title">Company</h5>
-                            <ul class="list-unstyled footer-list-menu">
-                                <li><a href="javascript: void(0);">About Us</a></li>
-                                <li><a href="javascript: void(0);">Features</a></li>
-                                <li><a href="javascript: void(0);">Team</a></li>
-                                <li><a href="javascript: void(0);">News</a></li>
-                                <li><a href="javascript: void(0);">FAQs</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="mb-4 mb-lg-0">
-                            <h5 class="mb-3 footer-list-title">Resources</h5>
-                            <ul class="list-unstyled footer-list-menu">
-                                <li><a href="javascript: void(0);">Crypto</a></li>
-                                <li><a href="javascript: void(0);">Loans</a></li>
-                                <li><a href="javascript: void(0);">Games</a></li>
-                                <li><a href="javascript: void(0);">Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="mb-4 mb-lg-0">
-                            <h5 class="mb-3 footer-list-title">Links</h5>
-                            <ul class="list-unstyled footer-list-menu">
-                                <li><a href="javascript: void(0);">Wallets</a></li>
-                                <li><a href="javascript: void(0);">ADS</a></li>
-    
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="mb-4 mb-lg-0">
-                            <h5 class="mb-3 footer-list-title">Latest News</h5>
-                            <div class="blog-post">
-                                <a href="javascript: void(0);" class="post">
-                                    <div class="badge badge-soft-success font-size-11 mb-3">Cryptocurrency</div>
-                                    <h5 class="post-title">Bitcoin sores amid Tramp Triamph</h5>
-                                    <p class="mb-0"><i class="bx bx-calendar me-1"></i> 14 Nov, 2024</p>
-                                </a>
-                                <a href="javascript: void(0);" class="post">
-                                    <div class="badge badge-soft-success font-size-11 mb-3">Cryptocurrency</div>
-                                    <h5 class="post-title">Ellon Did what?</h5>
-                                    <p class="mb-0"><i class="bx bx-calendar me-1"></i> 17 Nov, 2024</p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <hr class="footer-border my-5">
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        
-                           
-                   
-    
-                        <p class="mb-2"><script>document.write(new Date().getFullYear())</script> © LuxurPay. Design & Develop by JK.M Ids</p>
-                        <p>It will be as simple as occidental in fact, it will be to an english person, it will seem like simplified English, as a skeptical</p>
-                    </div>
-
+                <div class="col-lg-6 d-lg-block d-none">
+                    <img src="assets/images/coming-soon/coming-soon.png" alt="">
                 </div>
             </div>
-            <!-- end container -->
-        </footer>
-        <!-- Footer end -->
+        </div>
+    </div>
+</div>
+  
+  <!-- jQuery library js -->
+  <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+  <!-- Apex Chart js -->
+  <script src="assets/js/lib/apexcharts.min.js"></script>
+  <!-- Data Table js -->
+  <script src="assets/js/lib/dataTables.min.js"></script>
+  <!-- Iconify Font js -->
+  <script src="assets/js/lib/iconify-icon.min.js"></script>
+  <!-- jQuery UI js -->
+  <script src="assets/js/lib/jquery-ui.min.js"></script>
+  <!-- Vector Map js -->
+  <script src="assets/js/lib/jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="assets/js/lib/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- Popup js -->
+  <script src="assets/js/lib/magnifc-popup.min.js"></script>
+  <!-- Slick Slider js -->
+  <script src="assets/js/lib/slick.min.js"></script>
+  <!-- prism js -->
+  <script src="assets/js/lib/prism.js"></script>
+  <!-- file upload js -->
+  <script src="assets/js/lib/file-upload.js"></script>
+  <!-- audioplayer -->
+  <script src="assets/js/lib/audioplayer.js"></script>
+  
+  <!-- main js -->
+  <script src="assets/js/app.js"></script>
 
-        <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
+<script>
+    (function () {
+    /***** CALCULATE THE TIME REMAINING *****/
+    function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
 
-        <script src="assets/libs/jquery.easing/jquery.easing.min.js"></script>
+        /***** CONVERT THE TIME TO A USEABLE FORMAT *****/
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
 
-        <!-- Plugins js-->
-        <script src="assets/libs/jquery-countdown/jquery.countdown.min.js"></script>
+        /***** OUTPUT THE CLOCK DATA AS A REUSABLE OBJECT *****/
+        return {
+        total: t,
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        };
+    }
 
-        <!-- owl.carousel js -->
-        <script src="assets/libs/owl.carousel/owl.carousel.min.js"></script>
+    /***** DISPLAY THE CLOCK AND STOP IT WHEN IT REACHES ZERO *****/
+    function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector(".days");
+        var hoursSpan = clock.querySelector(".hours");
+        var minutesSpan = clock.querySelector(".minutes");
+        var secondsSpan = clock.querySelector(".seconds");
 
-        <!-- ICO landing init -->
-        <script src="assets/js/pages/ico-landing.init.js"></script>
+        function updateClock() {
+        var t = getTimeRemaining(endtime);
 
-        <script src="assets/js/app.js"></script>
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+        minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
 
-    </body>
+        if (t.total <= 0) {
+                clearInterval(timeinterval);
+            }
+        }
 
-<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/crypto-ico-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:51:56 GMT -->
+        updateClock(); // run function once at first to avoid delay
+        var timeinterval = setInterval(updateClock, 1000);
+    }
+
+        /***** SET A VALID END DATE *****/
+        var deadline = new Date(Date.parse(new Date()) + 99 * 24 * 60 * 60 * 1000);
+        initializeClock("coming-soon", deadline);
+    })();
+</script>
+
+</body>
+
+<!-- Mirrored from Advision.AdKe.com/demo/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Nov 2024 07:34:05 GMT -->
 </html>

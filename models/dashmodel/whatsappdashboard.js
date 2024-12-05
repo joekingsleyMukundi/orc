@@ -12,6 +12,10 @@ const whatsappdashSchema = new Schema({
     type: Number,
     default:0
   },
+  withdrawn:{
+    type:Number,
+    default:0
+  },
   totalViewCount:{
     type:Number,
     default:0

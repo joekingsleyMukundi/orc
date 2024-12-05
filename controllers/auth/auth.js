@@ -59,13 +59,12 @@ exports.registerUser =  async (req,res,next) => {
                        await newuser.save();
                     }
                 }
-                const activateUrl = `http://${req.get('host')}/activate/${newuser.id}`;
-                const message  = `Welcome to LuxurPay ${newuser.fullname}. Please activate your account to get started. Click this link ${activateUrl}`;
+                const activateUrl = `https://${req.get('host')}/activate/${newuser.id}`;
+                const message  = `Welcome to Advision ${newuser.fullname}. Please activate your account to get started. Click this link ${activateUrl}`;
                 const subj = "Welcome";
                 await sendMail(user.fullname,user.email,subj,message);
-                logActivity(newuser.id, "Account registration")
                 req.flash('success', 'Registration successful.Head to your email to activate account');
-                return res.redirect(`/auth_email_verificaion/${user.email}`);
+                return res.redirect(`/auth_signin`);
             });
         })
         .catch(error=>{
@@ -104,15 +103,12 @@ exports.loginUser = async (req,res,next)=>{
         }
         req.session.user = existinguser;
         req.session.is_loggedin=true;
-        logActivity(existinguser._id, "Account sign in")
         return res.redirect('/')
     }else{
         res.render('login', {successmessage:req.flash('success'),errormessage:req.flash('error')})
     }
 }
 exports.emailConfirmation = async (req,res,next)=>{
-    console.log("meme")
-    console.log(req.params)
     const user  = await User.findOne({_id: req.params.id})
     console.log(user);
     if (!user){
@@ -121,12 +117,11 @@ exports.emailConfirmation = async (req,res,next)=>{
     }
     if(!user.verified){
         req.flash('error', 'User is not active');
-        return res.redirect(`/auth_email_verificaion/${user.email}`)
+        return res.redirect(`/auth_signin`)
     }
     req.session.user = user;
-    req.session.is_loggedin = true
-    logActivity(user._id, "User email confirmation")
-    res.render('confirmem')
+    req.session.is_loggedin = true;
+    res.redirect('/auth_signin')
 }
 exports.emailVerification = async (req, res, next)=>{
     if(req.session.user){
@@ -148,8 +143,10 @@ exports.emailVerification = async (req, res, next)=>{
 }
 exports.emailVerificationApiController = async (req,res,next)=>{
     const id = req.params.id;
+    
     if (id){
         const user = await User.findOne({_id:id});
+       
         if(!user){
             req.flash('error', 'User doesnot exist');
             res.redirect('/auth_signup')
@@ -191,7 +188,7 @@ exports.forgotPassword = async (req,res,next)=>{
             return res.redirect('/auth_signin');
         }
         const resetToken = user.getResetPasswordToken();
-        console.log(resetToken);
+        
         const reseturl = `http://${req.get('host')}/auth_reset_password/${resetToken}`;
         const message  = `You are receiving this email because you (or someone else) has requested a reset of password. Please click this link ${reseturl}`;
         const subj = "Password Renewal";

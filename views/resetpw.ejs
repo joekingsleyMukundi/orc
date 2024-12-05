@@ -1,179 +1,126 @@
-<!doctype html>
-<html lang="en">
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 
-    
-<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/auth-recoverpw-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:52:45 GMT -->
+<!-- Mirrored from Advision.AdKe.com/demo/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Nov 2024 07:33:15 GMT -->
+
 <head>
-        
-        <meta charset="utf-8" />
-        <title>Recover Password 2 | LuxurPay - Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Turn your time into cash and your dreams into reality with effortless earning on the go" name="description" />
-        <meta content="JK.M Ids" name="author" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advision</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
+    <!-- remix icon font css  -->
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <!-- BootStrap css -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+    <!-- Apex Chart css -->
+    <link rel="stylesheet" href="assets/css/lib/apexcharts.css">
+    <!-- Data Table css -->
+    <link rel="stylesheet" href="assets/css/lib/dataTables.min.css">
+    <!-- Text Editor css -->
+    <link rel="stylesheet" href="assets/css/lib/editor-katex.min.css">
+    <link rel="stylesheet" href="assets/css/lib/editor.atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/css/lib/editor.quill.snow.css">
+    <!-- Date picker css -->
+    <link rel="stylesheet" href="assets/css/lib/flatpickr.min.css">
+    <!-- Calendar css -->
+    <link rel="stylesheet" href="assets/css/lib/full-calendar.css">
+    <!-- Vector Map css -->
+    <link rel="stylesheet" href="assets/css/lib/jquery-jvectormap-2.0.5.css">
+    <!-- Popup css -->
+    <link rel="stylesheet" href="assets/css/lib/magnific-popup.css">
+    <!-- Slick Slider css -->
+    <link rel="stylesheet" href="assets/css/lib/slick.css">
+    <!-- prism css -->
+    <link rel="stylesheet" href="assets/css/lib/prism.css">
+    <!-- file upload css -->
+    <link rel="stylesheet" href="assets/css/lib/file-upload.css">
 
-        <!-- owl.carousel css -->
-        <link rel="stylesheet" href="/assets/libs/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/lib/audioplayer.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-        <link rel="stylesheet" href="/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+<body>
 
-        <!-- Bootstrap Css -->
-        <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
-    </head>
-
-    <body class="auth-body-bg">
-        
-        <div>
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    
-                    <div class="col-xl-9">
-                        <div class="auth-full-bg pt-lg-5 p-4">
-                            <div class="w-100">
-                                <div class="bg-overlay"></div>
-                                <div class="d-flex h-100 flex-column">
-                    
-                                    <div class="p-4 mt-auto">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7">
-                                                <div class="text-center">
-                    
-                                                    <h4 class="mb-3"><i
-                                                            class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span
-                                                            class="text-primary">5k</span>+ Satisfied clients</h4>
-                    
-                                                    <div dir="ltr">
-                                                        <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" Thank you, LuxurPay, for your incredible
-                                                                        support in transforming my financial journey. Your platform has made
-                                                                        managing
-                                                                        finances simpler and stress-free. Grateful for the seamless
-                                                                        experience! "</p>
-                    
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">Vivian K</h4>
-                                                                        <p class="font-size-14 mb-0">- LuxurPay User</p>
-                                                                    </div>
-                                                                </div>
-                    
-                                                            </div>
-                    
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" Huge thanks to LuxurPay for empowering me
-                                                                        with easy-to-use tools and insights! Your guidance has been
-                                                                        invaluable in
-                                                                        helping me achieve my financial goals. "</p>
-                    
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">Ian Ndede</h4>
-                                                                        <p class="font-size-14 mb-0">- LuxurPay User</p>
-                                                                    </div>
-                                                                </div>
-                    
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-
-                    <div class="col-xl-3">
-                        <div class="auth-full-page-content p-md-5 p-4">
-                            <div class="w-100">
-
-                                <div class="d-flex flex-column h-100">
-                                    <div class="mb-4 mb-md-5">
-                                        <a href="/" class="d-block auth-logo" style="color: black; font-weight: bolder;">
-                                            <h5>
-                                                LuxurPay
-                                            </h5>
-                                        </a>
-                                    </div>
-                                    <div class="my-auto">
-                                        
-                                        <div>
-                                            <h5 class="text-primary"> Reset Password</h5>
-                                            <p class="text-muted">Reset Password .</p>
-                                        </div>
-            
-                                        <div class="mt-4">
-                                            <% if (successmessage.length> 0) { %>
-                                                <div class="alert alert-success text-center mb-4" role="alert">
-                                                    <%= successmessage[0]%>.
-                                                </div>
-                                            <% } %>
-                                            <% if (errormessage.length> 0) { %>
-                                                <div class="alert alert-danger text-center mb-4" role="alert">
-                                                    <%= errormessage[0]%>.
-                                                </div>
-                                            <% } %>
-                                            <form action="/auth_reset_password/<%= resettoken %>" method="post">
-                
-                                                <div class="mb-3">
-                                                    <label for="useremail" class="form-label">New Password</label>
-                                                    <input type="password" class="form-control" id="useremail" name="password" placeholder="Enter new password">
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="useremail" class="form-label">Retype Password</label>
-                                                    <input type="password" class="form-control" id="useremail" name="repassword" placeholder="Enter new password">
-                                                </div>
-                            
-                                                <div class="text-end">
-                                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Reset</button>
-                                                </div>
-
-                                            </form>
-                                            <div class="mt-5 text-center">
-                                                <p>Remember It ? <a href="/auth_signin" class="fw-medium text-primary"> Sign In here</a> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
+    <section class="auth forgot-password-page bg-base d-flex flex-wrap">
+        <div class="auth-left d-lg-block d-none">
+            <div class="d-flex align-items-center flex-column h-100 justify-content-center">
+                <img src="assets/images/auth/forgot-pass-img.png" alt="">
             </div>
-            <!-- end container-fluid -->
         </div>
+        <div class="auth-right py-32 px-24 d-flex flex-column justify-content-center">
+            <div class="max-w-464-px mx-auto w-100">
+                <div>
+                    <h4 class="mb-12">Reset Password</h4>
+                    <p class="mb-32 text-secondary-light text-lg">Please enter your new password</p>
+                    <% if (successmessage.length> 0) { %>
+                        <div class="alert alert-success text-center mb-4" role="alert">
+                            <%= successmessage[0]%>.
+                        </div>
+                        <% } %>
+                            <% if (errormessage.length> 0) { %>
+                                <div class="alert alert-danger text-center mb-4" role="alert">
+                                    <%= errormessage[0]%>.
+                                </div>
+                                <% } %>
+                </div>
+                <form  action="/auth_reset_password/<%= resettoken %>" method="post">
+                    <div class="icon-field">
+                        <span class="icon top-50 translate-middle-y">
+                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
+                        </span>
+                        <input type="password" class="form-control h-56-px bg-neutral-50 radius-12" name="password"
+                            placeholder="Enter Email">
+                    </div>
+                    <div class="icon-field">
+                        <span class="icon top-50 translate-middle-y">
+                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
+                        </span>
+                        <input type="password" class="form-control h-56-px bg-neutral-50 radius-12" name="repassword" placeholder="Re enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary text-sm btn-sm px-12 py-16 w-100 radius-12 mt-32"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">Reset</button>
 
-        <!-- JAVASCRIPT -->
-        <script src="/assets/libs/jquery/jquery.min.js"></script>
-        <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="/assets/libs/node-waves/waves.min.js"></script>
+                    <div class="text-center">
+                        <a href="/auth_signin" class="text-primary-600 fw-bold mt-24">Back to Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        <!-- owl.carousel js -->
-        <script src="/assets/libs/owl.carousel/owl.carousel.min.js"></script>
+    <!-- jQuery library js -->
+    <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Apex Chart js -->
+    <script src="assets/js/lib/apexcharts.min.js"></script>
+    <!-- Data Table js -->
+    <script src="assets/js/lib/dataTables.min.js"></script>
+    <!-- Iconify Font js -->
+    <script src="assets/js/lib/iconify-icon.min.js"></script>
+    <!-- jQuery UI js -->
+    <script src="assets/js/lib/jquery-ui.min.js"></script>
+    <!-- Vector Map js -->
+    <script src="assets/js/lib/jquery-jvectormap-2.0.5.min.js"></script>
+    <script src="assets/js/lib/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- Popup js -->
+    <script src="assets/js/lib/magnifc-popup.min.js"></script>
+    <!-- Slick Slider js -->
+    <script src="assets/js/lib/slick.min.js"></script>
+    <!-- prism js -->
+    <script src="assets/js/lib/prism.js"></script>
+    <!-- file upload js -->
+    <script src="assets/js/lib/file-upload.js"></script>
+    <!-- audioplayer -->
+    <script src="assets/js/lib/audioplayer.js"></script>
 
-        <!-- auth-2-carousel init -->
-        <script src="/assets/js/pages/auth-2-carousel.init.js"></script>
-        
-        <!-- App js -->
-        <script src="/assets/js/app.js"></script>
+    <!-- main js -->
+    <script src="assets/js/app.js"></script>
 
-    </body>
+</body>
 
-<!-- Mirrored from JK.M Ids.com/LuxurPay-django/layouts/auth-recoverpw-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Sep 2024 13:52:45 GMT -->
+<!-- Mirrored from Advision.AdKe.com/demo/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Nov 2024 07:33:18 GMT -->
+
 </html>

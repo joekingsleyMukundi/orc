@@ -1,555 +1,337 @@
 <%- include('./includes/headers.ejs') %>
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content">
+  <div class="dashboard-main-body">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+  <h6 class="fw-semibold mb-0">Dashboard</h6>
+  <ul class="d-flex align-items-center gap-2">
+    <li class="fw-medium">
+      <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+        Dashboard
+      </a>
+    </li>
+    <li>-</li>
+    <li class="fw-medium">Advision</li>
+    <% if (successmessage.length> 0) { %>
+      <div class="alert alert-success text-center mb-4" role="alert">
+        <%= successmessage[0]%>.
+      </div>
+      <% } %>
+        <% if (errormessage.length> 0) { %>
+          <div class="alert alert-danger text-center mb-4" role="alert">
+            <%= errormessage[0]%>.
+          </div>
+          <% } %>
+<% if (dashboard.package == 'Basic') { %>
+      <div class="alert alert-success text-center mb-4" role="alert">
+        Get Advanced package and get 5000KES cashback and guaranteed 15000KES Monthly salary..
+      </div>
+      <% } %>
+<% if (dashboard.package == 'Platinum') { %>
+      <div class="alert alert-success text-center mb-4" role="alert">
+        Get Executive Plan package and get 10000KES cashback and guaranteed 35000KES Monthly salary..
+      </div>
+      <% } %>
+<% if (dashboard.package == 'None') { %>
+      <div class="alert alert-success text-center mb-4" role="alert">
+  	Get yourself a package to start working and earning with us today.
+      </div>
+      <% } %>
+  </ul>
+</div>
 
-                <div class="page-content">
-                    <div class="container-fluid">
+    <div class="row row-cols-xxxl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-4">
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-1 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">WhatsApp Active Earnings</p>
+                <h6 class="mb-0"><%=whatsappdash.activeBalance%></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="gridicons:multiple-users" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+            <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
+              <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon></span> 
+              Amount is in KES
+            </p>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-2 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Total Whatsapp Wihdrawals</p>
+                <h6 class="mb-0"><%=whatsappdash.withdrawn%></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="fa-solid:award" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+            <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
+              <span class="d-inline-flex align-items-center gap-1 text-danger-main"><iconify-icon icon="bxs:down-arrow" class="text-xs"></iconify-icon></span> 
+              Amount is in KES
+            </p>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-3 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Total Earnings</p>
+                <h6 class="mb-0"><%= dashboard.appEarnings %></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+            <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
+              <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon></span> 
+              Amount is in KES
+            </p>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-4 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Deposit Balance</p>
+                <h6 class="mb-0"><%= dashboard.depositeBalance %></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="solar:wallet-bold" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-5 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Earning Balance</p>
+                <h6 class="mb-0"><%= dashboard.earningBalance%></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="solar:download-twice-square-bold" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-6 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Withdrawn</p>
+                <h6 class="mb-0"><%= dashboard.withdrawals %></h6>
+              </div>
+              <div class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
+                <iconify-icon icon="fa6-solid:file-invoice-dollar" class="text-white text-2xl mb-0"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div><!-- card end -->
+      </div>
+      <div class="col">
+        <div class="card shadow-none border bg-gradient-start-7 h-100">
+          <div class="card-body p-20">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div>
+                <p class="fw-medium text-primary-light mb-1">Package Type:</p>
+                <h6 class="mb-0"><%= dashboard.package %></h6>
+              </div>
+              
+            </div>
+          </div>
+        </div><!-- card end -->
+      </div>
+    </div>
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <div class="card overflow-hidden">
-                                    <div class="bg-primary bg-soft">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <div class="text-primary p-3">
-                                                    <h5 class="text-primary">Welcome Back !</h5>
-                                                    <p>LuxurPay Home</p>
-                                                    <% if (successmessage.length> 0) { %>
-                                                        <div class="alert alert-success text-center mb-4" role="alert">
-                                                            <%= successmessage[0]%>.
-                                                        </div>
-                                                        <% } %>
-                                                            <% if (errormessage.length> 0) { %>
-                                                                <div class="alert alert-danger text-center mb-4" role="alert">
-                                                                    <%= errormessage[0]%>.
-                                                                </div>
-                                                                <% } %>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 align-self-end">
-                                                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <h5 class="font-size-15 text-truncate"><%= user.fullname %></h5>
-                                                <p class="text-muted mb-0 text-truncate"><%= dashboard.package %></p>
-                                            </div>
-
-                                            <div class="col-sm-8">
-                                                <div class="pt-4">
-
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <h5 class="font-size-15"><%= downlines.length %></h5>
-                                                            <p class="text-muted mb-0">Verified Downlines</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <h5 class="font-size-15"><%= dashboard.appEarnings %></h5>
-                                                            <p class="text-muted mb-0">Revenue</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Total App Earnings</h4>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <p class="text-muted">Total Revenue</p>
-                                                <h3>KES<%= dashboard.appEarnings%></h3>
-                                                <p class="text-muted"><span class="text-success me-2"> 12% <i class="mdi mdi-arrow-up"></i> </span> From previous period</p>
-                                            </div>
-                                            
-                                            <div class="col-sm-6">
-                                                <div class="mt-4 mt-sm-0">
-                                                    <div id="radialBar-chart" data-colors='["--bs-primary"]' class="apex-charts"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="text-muted mb-0">We craft digital, graphic and dimensional thinking.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-8">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">DepositeBalance</p>
-                                                        <h4 class="mb-0">KES<%= dashboard.depositeBalance %></h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center">
-                                                        <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
-                                                            <span class="avatar-title">
-                                                                <i class="bx bx-copy-alt font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">EarningBalance</p>
-                                                        <h4 class="mb-0">KES<%= dashboard.earningBalance%></h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center ">
-                                                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-archive-in font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card mini-stats-wid">
-                                            <div class="card-body">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <p class="text-muted fw-medium">Withdrawals</p>
-                                                        <h4 class="mb-0">KES<%= dashboard.withdrawals %></h4>
-                                                    </div>
-
-                                                    <div class="flex-shrink-0 align-self-center">
-                                                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end row -->
-
-                                <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Gauge Chart</h4>
-                                        <div id="gauge-chart" data-colors='["--bs-success","--bs-primary","--bs-danger"]' class="e-charts"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            
-                            <div class="col-xl-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-5">Activity</h4>
-                                        <ul id="activityList" class="verti-timeline list-unstyled">
-                                            <% if (activities && activities.length> 0) { %>
-                                                <% activities.forEach(function(activity) { %>
-                                                    <li class="event-list">
-                                                        <div class="event-timeline-dot">
-                                                            <i class="bx bx-right-arrow-circle font-size-18"></i>
-                                                        </div>
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 me-3">
-                                                                <h5 class="font-size-14">
-                                                                    <%= activity.date %> <i
-                                                                            class="bx bx-right-arrow-alt font-size-16 text-primary align-middle ms-2"></i>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="flex-grow-1">
-                                                                <div>
-                                                                    <%= activity.activity %>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <% }) %>
-                                                        <% } else { %>
-                                                            <li id="noActivityMessage" class="text-center">No activity as of now</li>
-                                                            <% } %>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Top Selling Products</h4>
-                            
-                                        <div class="text-center">
-                                            <div class="mb-4">
-                                                <i class="bx bx-map-pin text-primary display-4"></i>
-                                            </div>
-                                            <h3 id="top-product-count">KES<%= topProducts[0]?.price %>
-                                            </h3> <!-- Initial load for top product price -->
-                                            <p id="top-product-name">
-                                                <%= topProducts[0]?.name %>
-                                            </p> <!-- Updated with top product name -->
-                                        </div>
-                            
-                                        <div class="table-responsive mt-4">
-                                            <table class="table align-middle table-nowrap">
-                                                <tbody id="top-products-table">
-                                                    <% for (let i=1; i < Math.min(topProducts.length, 4); i++) { %>
-                                                        <tr>
-                                                            <td style="width: 30%">
-                                                                <p class="mb-0">
-                                                                    <%= topProducts[i].name %>
-                                                                </p>
-                                                            </td>
-                                                            <td style="width: 25%">
-                                                                <h5 class="mb-0">$<%= topProducts[i].price %>
-                                                                </h5>
-                                                            </td>
-                                                            <td>
-                                                                <div class="progress bg-transparent progress-sm">
-                                                                    <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 35%" aria-valuenow="0"
-                                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <% } %>
-                                                    <!-- Rows for 2nd to 4th products will be dynamically inserted here -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Latest Transaction</h4>
-                                        <div class="table-responsive">
-                                            <table class="table align-middle table-nowrap mb-0">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th style="width: 20px;">
-                                                            <div class="form-check font-size-16 align-middle">
-                                                                <input class="form-check-input" type="checkbox" id="transactionCheckAll">
-                                                                <label class="form-check-label" for="transactionCheckAll"></label>
-                                                            </div>
-                                                        </th>
-                                                        <th class="align-middle">Order ID</th>
-                                                        <th class="align-middle">Billing Name</th>
-                                                        <th class="align-middle">Date</th>
-                                                        <th class="align-middle">Total</th>
-                                                        <th class="align-middle">Payment Status</th>
-                                                        <th class="align-middle">Payment Method</th>
-                                                        <th class="align-middle">Phone</th>
-                                                        <th class="align-middle">Transaction Type</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <% if (transactions.length> 0) { %>
-                                                        <% transactions.forEach(transaction=> { %>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check font-size-16">
-                                                                        <input class="form-check-input" type="checkbox">
-                                                                        <label class="form-check-label"></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td><a href="javascript: void(0);" class="text-body fw-bold">
-                                                                        <%= transaction.orderId %>
-                                                                    </a></td>
-                                                                <td>
-                                                                    <%= transaction.billingName %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= transaction.date %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= transaction.total %>
-                                                                </td>
-                                                                <td>
-                                                                    <span
-                                                                        class="badge badge-pill badge-soft-<%= transaction.status === 'Paid' ? 'success' : transaction.status === 'Chargeback' ? 'danger' : 'warning' %> font-size-11">
-                                                                        <%= transaction.status %>
-                                                                    </span>
-                                                                </td>
-                                                                <td>
-                                                                    <%= transaction.paymentMethod %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= transaction.Phone %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= transaction.Transactiontype %>
-                                                                </td>
-                                                            </tr>
-                                                            <% }); %>
-                                                                <% } else { %>
-                                                                    <tr>
-                                                                        <td colspan="8" class="text-center">No transactions done yet.</td>
-                                                                    </tr>
-                                                                    <% } %>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- end row -->
-                    </div>
-                    <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-                <!-- Transaction Modal -->
-                <div class="modal fade transaction-detailModal" tabindex="-1" role="dialog" aria-labelledby="transaction-detailModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="transaction-detailModalLabel">Order Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Product id: <span class="text-primary">#SK2540</span></p>
-                                <p class="mb-4">Billing Name: <span class="text-primary">Neal Matthews</span></p>
-
-                                <div class="table-responsive">
-                                    <table class="table align-middle table-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-7.png" alt="" class="avatar-sm">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Wireless Headphone (Black)</h5>
-                                                        <p class="text-muted mb-0">$ 225 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 255</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-4.png" alt="" class="avatar-sm">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Phone patterned cases</h5>
-                                                        <p class="text-muted mb-0">$ 145 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 145</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Sub Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Shipping:</h6>
-                                                </td>
-                                                <td>
-                                                    Free
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
-
-                <!-- subscribeModal -->
+    <div class="row gy-4 mt-1">
+      <div class="col-xxl-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+              <h6 class="text-lg mb-0">Statistics</h6>
+              <select class="form-select bg-base form-select-sm w-auto">
+                <option>Yearly</option>
                 
-                <!-- end modal -->
-
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by The Shine
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+              </select>
             </div>
-            <!-- end main content-->
-
+            <div class="d-flex flex-wrap align-items-center gap-2 mt-8">
+              <h6 class="mb-0"><%= dashboard.appEarnings %></h6>
+              <span class="text-sm fw-semibold rounded-pill bg-success-focus text-success-main border br-success px-8 py-4 line-height-1 d-flex align-items-center gap-1">
+                10% <iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon>
+              </span>
+              <span class="text-xs fw-medium">+ KES 15000 Per Day</span>
+            </div>
+            <div id="chart" class="pt-28 apexcharts-tooltip-style-1"></div>
+          </div>
         </div>
-        <!-- END layout-wrapper -->
-        <!-- Include Socket.IO Client Library -->
-        
-        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-        <script>
-            // Establish a connection to the server
-            const socket = io();
+      </div>
+      <div class="col-xxl-12 col-xl-12">
+        <div class="card h-100">
+            <div class="card-body p-24">
 
-            // User-specific data
-            const userId = '<%= user._id %>';  // Assuming userId is passed from the server
+              <div class="d-flex flex-wrap align-items-center gap-1 justify-content-between mb-16">
+                <ul class="nav border-gradient-tab nav-pills mb-0" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link d-flex align-items-center active" id="pills-to-do-list-tab" data-bs-toggle="pill" data-bs-target="#pills-to-do-list" type="button" role="tab" aria-controls="pills-to-do-list" aria-selected="true">
+                      Latest Transactions 
+                      <span class="text-sm fw-semibold py-6 px-12 bg-neutral-500 rounded-pill text-white line-height-1 ms-12 notification-alert"><%=transactions.length%></span>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link d-flex align-items-center" id="pills-recent-leads-tab" data-bs-toggle="pill" data-bs-target="#pills-recent-leads" type="button" role="tab" aria-controls="pills-recent-leads" aria-selected="false" tabindex="-1">
+                      Latest Verified Affiliates 
+                      <span class="text-sm fw-semibold py-6 px-12 bg-neutral-500 rounded-pill text-white line-height-1 ms-12 notification-alert"><%= downlines.length %></span>
+                    </button>
+                  </li>
+                </ul>
+                <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                  View All
+                  <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                </a>
+              </div>
 
-            // Join the user-specific room to receive updates only for this user
-            socket.emit('joinRoom', userId);
-            const activityList = document.getElementById('activityList');
-
-                // Function to format the date from the string, assuming it's in 'dd MMM' format
-                const extractDate = (activityString) => {
-                    const datePattern = /at (.+)$/; // Matches the date part after 'at '
-                    const match = activityString.match(datePattern);
-                    return match ? match[1] : '';   // Returns the date (e.g., '22 Nov')
-                };
-
-                // Function to extract the activity from the string, excluding the date
-                const extractActivity = (activityString) => {
-                    const activityPattern = /^(.*) at /; // Matches the part before 'at '
-                    const match = activityString.match(activityPattern);
-                    return match ? match[1] : '';   // Returns the activity description
-                };
-
-
-            // Listen for user-specific activity updates
-            // Listen for activity updates from Socket.IO
-                socket.on('activityUpdate', (newActivityString) => {
-                    // Destructure the string into the activity and the date
-                    const activity = extractActivity(newActivityString);
-                    const date = extractDate(newActivityString);
-
-                    // Remove "No activity" message if it exists
-                    const noActivityMessage = document.getElementById('noActivityMessage');
-                    if (noActivityMessage) {
-                        noActivityMessage.remove();
-                    }
-
-                    // Create a new activity list item
-                    const newActivityItem = document.createElement('li');
-                    newActivityItem.classList.add('event-list');
-                    newActivityItem.innerHTML = `
-            <div class="event-timeline-dot">
-                <i class="bx bx-right-arrow-circle font-size-18"></i>
-            </div>
-            <div class="d-flex">
-                <div class="flex-shrink-0 me-3">
-                    <h5 class="font-size-14">${date} <i class="bx bx-right-arrow-alt font-size-16 text-primary align-middle ms-2"></i></h5>
+              <div class="tab-content" id="pills-tabContent">   
+                <div class="tab-pane fade show active" id="pills-to-do-list" role="tabpanel" aria-labelledby="pills-to-do-list-tab" tabindex="0">
+                  <div class="table-responsive scroll-sm">
+                    <table class="table bordered-table sm-table mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">Order ID</th>
+                          <th scope="col">Billing Name</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Total</th>
+                          <th scope="col"class="text-center">Payment Status</th>
+                          <th scope="col">Payment Method</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col">Transaction Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if (transactions.length> 0) { %>
+                          <% transactions.forEach(transaction=> { %>
+                            <tr>
+                              <td><a href="javascript: void(0);" class="text-body fw-bold">
+                                  <%= transaction.orderId %>
+                                </a></td>
+                              <td>
+                                <%= transaction.billingName %>
+                              </td>
+                              <td>
+                                <%= transaction.date %>
+                              </td>
+                              <td>
+                                <%= transaction.total %>
+                              </td>
+                              <td>
+                                <span
+                                  class="badge badge-pill badge-soft-<%= transaction.status === 'Paid' ? 'success' : transaction.status === 'Chargeback' ? 'danger' : 'warning' %> font-size-11">
+                                  <%= transaction.status %>
+                                </span>
+                              </td>
+                              <td>
+                                <%= transaction.paymentMethod %>
+                              </td>
+                              <td>
+                                <%= transaction.Phone %>
+                              </td>
+                              <td>
+                                <%= transaction.Transactiontype %>
+                              </td>
+                            </tr>
+                            <% }); %>
+                              <% } else { %>
+                                <tr>
+                                  <td colspan="8" class="text-center">No transactions done yet.</td>
+                                </tr>
+                                <% } %>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="flex-grow-1">
-                    <div>${activity}</div>
+                <div class="tab-pane fade" id="pills-recent-leads" role="tabpanel" aria-labelledby="pills-recent-leads-tab" tabindex="0">
+                  <div class="table-responsive scroll-sm">
+                    <table class="table bordered-table sm-table mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">User Name </th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col" class="text-center">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if (downlines.length> 0) { %>
+                          <% transactions.forEach(transaction=> { %>
+                            <tr>
+                              <td>
+                                <div class="form-check font-size-16">
+                                  <input class="form-check-input" type="checkbox">
+                                  <label class="form-check-label"></label>
+                                </div>
+                              </td>
+                              <td><a href="javascript: void(0);" class="text-body fw-bold">
+                                  <%= transaction.orderId %>
+                                </a></td>
+                              <td>
+                                <%= transaction.billingName %>
+                              </td>
+                              <td>
+                                <%= transaction.date %>
+                              </td>
+                              <td>
+                                <%= downlines.fullname %>
+                              </td>
+                              
+                              <td>
+                                <%= downlines.email %>
+                              </td>
+                              <td>
+                                <%= downlines.Phone %>
+                              </td>
+                              <td>
+                                 Verified
+                              </td>
+                            </tr>
+                            <% }); %>
+                              <% } else { %>
+                                <tr>
+                                  <td colspan="8" class="text-center">No downlines yet.</td>
+                                </tr>
+                                <% } %>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-            </div>
-        `;
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                    // Insert the new activity at the top of the list
-                    activityList.insertBefore(newActivityItem, activityList.firstChild);
-
-                    // Limit to the latest 5 activities
-                    if (activityList.children.length > 5) {
-                        activityList.removeChild(activityList.lastChild);
-                    }
-                });
-
-            // Listen for live product price updates
-            socket.on('priceUpdate', (updatedProducts) => {
-                    // Sort products by price in descending order
-                    const sortedProducts = updatedProducts.sort((a, b) => b.price - a.price);
-
-                    // Update the top product name and price in the main card area (1st product)
-                    const topProduct = sortedProducts[0];
-                    document.getElementById('top-product-name').textContent = topProduct.name;
-                    document.getElementById('top-product-count').textContent = `$${topProduct.price}`;
-
-                    // Update the table with 2nd to 4th products
-                    const productTable = document.getElementById('top-products-table');
-                    productTable.innerHTML = '';  // Clear the current table content
-
-                    const secondToFourthProducts = sortedProducts.slice(1, 4);
-                    secondToFourthProducts.forEach((product, index) => {
-                        const percentage = Math.floor(Math.random() * 100);  // Progress bar percentage
-
-                        const row = `
-                <tr>
-                    <td style="width: 30%">
-                        <p class="mb-0">${product.name}</p>
-                    </td>
-                    <td style="width: 25%">
-                        <h5 class="mb-0">$${product.price}</h5>
-                    </td>
-                    <td>
-                        <div class="progress bg-transparent progress-sm">
-                            <div class="progress-bar bg-${getProgressColor(index)} rounded" role="progressbar" style="width: ${percentage}%" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </td>
-                </tr>
-            `;
-                        productTable.insertAdjacentHTML('beforeend', row);
-                    });
-                })
-                function getProgressColor(index) {
-                    const colors = ['primary', 'success', 'warning'];
-                    return colors[index % colors.length];  // Rotate colors for progress bars
-                }
-            </script>
-        <%- include('./includes/footer.ejs') %>
+  <footer class="d-footer">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto">
+      <p class="mb-0">© 2024 Advision. All Rights Reserved.</p>
+    </div>
+    <div class="col-auto">
+      <p class="mb-0">Made by <span class="text-primary-600">AdKe</span></p>
+    </div>
+  </div>
+</footer>
+</main>
+<%- include('./includes/footer.ejs') %>

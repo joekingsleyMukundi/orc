@@ -6,7 +6,8 @@ const Dashboard = require("../../models/dashmodel/dash");
 const WhatsAppDashboard = require("../../models/dashmodel/whatsappdashboard");
 const { checkAndFetchProducts } = require("../../services/whatsappproductservice");
 const WhatsAppViews = require('../../models/dashmodel/whatsappviews');
-const ProductReviews = require('../../models/dashmodel/producrreview')
+const ProductReviews = require('../../models/dashmodel/producrreview');
+
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -23,7 +24,6 @@ exports.whatsappdashboard = async (req, res, next)=>{
     const dashboard = await Dashboard.findOne({user:user._id});
     const whatsappdash = await WhatsAppDashboard.findOne({user:user._id})
     const totalprods = await WhatsAppViews.find();
-    const products  = JSON.parse(await checkAndFetchProducts());
     const realp = await ProductReviews.find();
     res.render('dashboard-whatsapp',{
         successmessage:req.flash('success'),
@@ -31,7 +31,6 @@ exports.whatsappdashboard = async (req, res, next)=>{
         user,
         dashboard,
         whatsappdash,
-        products,
         totalprods:realp,
 	realp
     })

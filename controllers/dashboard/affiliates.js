@@ -47,15 +47,6 @@ exports.downlineDashboard = async (req, res, next)=>{
     const transactions = await Transaction.find({ user: downlineId })
         .sort({ createdAt: -1 })  // Sort by createdAt in descending order
         .limit(6)
-    const topProducts = await getTopProducts();
-    const activities = await getUserActivities(downlineId);
-    // Destructure each activity to extract the activity text and date
-    const formattedActivities = activities.map(activityString => {
-        const activity = activityString.split(' at ')[0];  // Extract the activity part
-        const date = activityString.split(' at ')[1];      // Extract the date part
-        return { activity, date };                        // Return an object with activity and date
-    });
-
     const formattedTransactions = transactions.map(transaction => ({
         orderId: transaction.Transactioncode,
         billingName: transaction.Billingname,
@@ -74,7 +65,5 @@ exports.downlineDashboard = async (req, res, next)=>{
         dashboard,
         downlines,
         transactions: formattedTransactions,
-        topProducts,
-        activities: formattedActivities
     })
 }

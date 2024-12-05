@@ -10,15 +10,11 @@ const { initSocketServer } = require('./services/sockets');
 const app = express();
 const server = http.createServer(app);
 
-require('./services/cronjob');
-
 const authRoutes = require('./routes/auth/auth');
 const dashRouts = require('./routes/dashboard/dash');
 
 const errorHandler = require('./middlewares/errorhandler.js');
-const { connectRedis } = require('./config/redis.js');
-const { addRandomLikesToBlogs } = require('./services/autolike.js');
-const seedTransactions = require('./seeders/cyptoseed.js');
+
 
 // Middlewares
 app.use(cors());
@@ -54,24 +50,18 @@ initSocketServer(server);
 
 const io = require('./services/sockets').getSocketInstance();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4040;
 
-const mongoUrl = 'mongodb+srv://joekingsleymukundi:Mukundijoe254@cluster0.vmwff.mongodb.net/lifeagencies';
+const mongoUrl = 'mongodb+srv://joekingsleymukundi:zQkj0NKdRkpbGUqd@cluster0.dau9k.mongodb.net/advision';
 const dbConn = async () => {
   try {
     mongoose.set("strictQuery", false);
     await mongoose.connect(mongoUrl);
     // Ensure Redis is connected before starting
     console.log('DB active');
-    await seedTransactions();
-    setInterval(async () => {
-    await addRandomLikesToBlogs();
-}, 3600000); 
-    connectRedis().then(()=>{
-      server.listen(port, () => {
-        console.log(`Server live at port ${port}`);
-      });
-    })
+  server.listen(port, () => {
+    console.log(`Server live at port ${port}`);
+  });
   } catch (error) {
     console.error(error);
   }

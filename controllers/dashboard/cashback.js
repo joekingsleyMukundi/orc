@@ -3,6 +3,11 @@ exports.cashback = async (req, res, next) => {
     const user = req.session.user;
     const dashboard = await Dashboard.findOne({user:user._id});
     const packageType = dashboard.package;
+if(!dashboard.isCashback){
+	req.flash('error', 'cashback is not active please buy a higher package');
+        res.redirect('/wallet');
+	return;
+}
     try {
         // Check if all fields are provided
         var revenue;
@@ -20,6 +25,7 @@ exports.cashback = async (req, res, next) => {
         dashboard.appEarnings += revenue;
         dashboard.monthlyRevenue += revenue;
         dashboard.earningBalance += revenue;
+	dashboard.isCashback = false;
         await dashboard.save();
         req.flash('success', 'Blog created successfully!');
         res.redirect('/wallet');

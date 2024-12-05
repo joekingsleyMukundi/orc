@@ -1,187 +1,170 @@
+ 
 <%- include('./includes/headers.ejs') %>
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content">
+    <div class="dashboard-main-body">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+  <h6 class="fw-semibold mb-0">Pricing</h6>
+  <ul class="d-flex align-items-center gap-2">
+    <li class="fw-medium">
+      <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+        Dashboard
+      </a>
+    </li>
+    <li>-</li>
+    <li class="fw-medium">Packages Pricing</li>
+  </ul>
+</div>
 
-                <div class="page-content">
-                    <div class="container-fluid">
-
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Packages</h4>
-
-                                    
-
-                                </div>
-                            </div>
+        <div class="card h-100 p-0 radius-12 overflow-hidden">
+            <div class="card-header border-bottom bg-base py-16 px-24">
+                <h6 class="mb-0 text-lg">Pricing Plan </h6>
+            </div>
+            <div class="card-body p-40">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-10">
+                        <div class="text-center">   
+                            <h4 class="mb-16">Pricing Plan</h4>
+                            <p class="mb-0 text-lg text-secondary-light"></p>
                         </div>
-                        <!-- end page title -->
-
-                        <div class="row justify-content-center">
-                            <div class="col-lg-6">
-                                <div class="text-center mb-5">
-                                    <h4>Choose your package plan</h4>
-                                    <p class="text-muted">To achieve this, it would be necessary to have the package plan amount  in your payment method. Also KES 5000 sign up bonus guaranteed</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card plan-box">
-                                    <div class="card-body p-4">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <h5>BASIC PACKAGE</h5>
-                                                <p class="text-muted">Smallest Plan</p>
+        
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab" tabindex="0">
+                                <div class="row gy-4">
+                                    <div class="col-xxl-4 col-sm-6 pricing-plan-wrapper">
+                                        <div class="pricing-plan position-relative radius-24 overflow-hidden border bg-lilac-100">
+                                            <div class="d-flex align-items-center gap-16">
+                                                <span class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon1.png" alt="">
+                                                </span>
+                                                <div class="">
+                                                    <h6 class="mb-0">Starter</h6>
+                                                </div>
                                             </div>
-                                            <div class="flex-shrink-0 ms-3">
-                                                <i class="bx bx-walk h1 text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <div class="py-4">
-                                            <h2><sup><small>KES</small></sup> 1000/ <span class="font-size-13">Only</span></h2>
-                                        </div>
-                                        <div class="text-center plan-btn">
-                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
-                                                onclick="redirectToPayment('Basic', 1000)">
-                                                Select Plan
-                                            </a>
-                                            
-                                            <script>
-                                                function redirectToPayment(option, amount) {
-                                                    // Construct the URL with query parameters
-                                                    const baseUrl = "/payment/package";
-                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
-
-                                                    // Redirect the user to the payment page
-                                                    window.location.href = url;
-                                                }
-                                            </script>
-                                        </div>
-
-                                        <div class="plan-features mt-5">
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Affiliates Bonus</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> No Ads Earnings</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> No CashBack </p>
+                                            <p class="mt-16 mb-0 text-secondary-light mb-28">Earning methods</p>
+                                            <h3 class="mb-24">KES 1000<span class="fw-medium text-md text-secondary-light">/Lifetime</span> </h3>
+                                            <span class="mb-20 fw-medium">What’s included</span>
+                                            <ul>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">All analytics features</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Games</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Whatsapp earnings ksh 100 per view</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Affiliate</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="bg-lilac-600 bg-hover-lilac-700 text-white text-center border border-lilac-600 text-sm btn-sm px-12 py-10 w-100 radius-8 mt-28" onclick="redirectToPayment('Basic', 1000)">Get started</button>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card plan-box">
-                                    <div class="card-body p-4">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <h5>PLATINUM </h5>
-                                                <p class="text-muted">Cashback Package</p>
+                                    <div class="col-xxl-4 col-sm-6 pricing-plan-wrapper">
+                                        <div class="pricing-plan scale-item position-relative radius-24 overflow-hidden border bg-primary-600 text-white">
+                                            <span class="bg-white bg-opacity-25 text-white radius-24 py-8 px-24 text-sm position-absolute end-0 top-0 z-1 rounded-start-top-0 rounded-end-bottom-0">Popular</span>
+                                            <div class="d-flex align-items-center gap-16">
+                                                <span class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon2.png" alt="">
+                                                </span>
+                                                <div class="">
+                                                    <h6 class="mb-0 text-white">Advanced</h6>
+                                                </div>
                                             </div>
-                                            <div class="flex-shrink-0 ms-3">
-                                                <i class="bx bx-run h1 text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <div class="py-4">
-                                            <h2><sup><small>KES</small></sup> 2500/ <span class="font-size-13">Only</span></h2>
-                                        </div>
-                                        <div class="text-center plan-btn">
-                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
-                                                onclick="redirectToPayment('Platinum', 2500)">
-                                                Select Plan
-                                            </a>
+                                            <p class="mt-16 mb-0 text-white mb-28">Earning Methods. </p>
+                                            <h3 class="mb-24 text-white">KES 2500 <span class="fw-medium text-md text-white">/Lifetime</span> </h3>
+                                            <span class="mb-20 fw-medium">What’s included</span>
+                                            <ul>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon icon="iconamoon:check-light" class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Whatsapp 5 day advertising @ 100 KES/View</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon icon="iconamoon:check-light" class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Forex Classes</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon icon="iconamoon:check-light" class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Cash Back @ 5000kes</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon icon="iconamoon:check-light" class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Online Games</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="bg-white text-primary-600 text-white text-center border border-white text-sm btn-sm px-12 py-10 w-100 radius-8 mt-28"  onclick="redirectToPayment('Premium_ads', 2500)">Get started</button>
                                             
-                                            <script>
-                                                function redirectToPayment(option, amount) {
-                                                    // Construct the URL with query parameters
-                                                    const baseUrl = "/payment/package";
-                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
-
-                                                    // Redirect the user to the payment page
-                                                    window.location.href = url;
-                                                }
-                                            </script>
-                                        </div>
-
-                                        <div class="plan-features mt-5">
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Free Live Support</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> BI Weekly Ads Earnings</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> 5000 Cashback</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card plan-box">
-                                    <div class="card-body p-4">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <h5>PREMIUM ADS</h5>
-                                                <p class="text-muted">Best Ads Package</p>
+                                    <div class="col-xxl-4 col-sm-6 pricing-plan-wrapper">
+                                        <div class="pricing-plan position-relative radius-24 overflow-hidden border bg-success-100">
+                                            <div class="d-flex align-items-center gap-16">
+                                                <span class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon3.png" alt="">
+                                                </span>
+                                                <div class="">
+                                                    <h6 class="mb-0">Executive Plan</h6>
+                                                </div>
                                             </div>
-                                            <div class="flex-shrink-0 ms-3">
-                                                <i class="bx bx-cycling h1 text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <div class="py-4">
-                                            <h2><sup><small>KES</small></sup> 4800/ <span class="font-size-13">Only(10K Cashback) </span></h2>
-                                        </div>
-                                        <div class="text-center plan-btn">
-                                            <a href="javascript: void(0);" class="btn btn-primary btn-sm waves-effect waves-light"
-                                                onclick="redirectToPayment('Premium_ads', 4800)">
-                                                Select Plan
-                                            </a>
+                                            <p class="mt-16 mb-0 text-secondary-light mb-28">Earning Methods. (KES 10000 cash back)</p>
+                                            <h3 class="mb-24">KES 4800 <span class="fw-medium text-md text-secondary-light">/Lifetime</span> </h3>
+                                            <span class="mb-20 fw-medium">What’s included</span>
+                                            <ul>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-success-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg   "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">SocialMedia Advertising</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-success-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg   "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Bitcoin Mining</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-success-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg   "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Remotasks</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16">
+                                                    <span class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-success-600 rounded-circle"><iconify-icon icon="iconamoon:check-light" class="text-white text-lg   "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Whatsapp Daily Advertising</span>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="bg-success-600 bg-hover-success-700 text-white text-center border border-success-600 text-sm btn-sm px-12 py-10 w-100 radius-8 mt-28" onclick="redirectToPayment('Platinum', 4800)">Get started</button>
                                             
-                                            <script>
-                                                function redirectToPayment(option, amount) {
-                                                    // Construct the URL with query parameters
-                                                    const baseUrl = "/payment/package";
-                                                    const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
-
-                                                    // Redirect the user
-                                                    window.location.href = url;
-                                                }
-                                            </script>
-                                        </div>
-
-                                        <div class="plan-features mt-5">
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Free Live Support</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Unlimited Ads Revenue</p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Games </p>
-                                            <p><i class="bx bx-checkbox-square text-primary me-2"></i> Writing Accounts</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <!-- end row -->
-
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-                
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © LuxurPay.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by JK.M Ids
                                 </div>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
-            <!-- end main content-->
+                </div>
 
+            </div>
         </div>
-        <!-- END layout-wrapper -->
+        
+    </div>
+  
+    <footer class="d-footer">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto">
+      <p class="mb-0">© 2024 Advision. All Rights Reserved.</p>
+    </div>
+    <div class="col-auto">
+      <p class="mb-0">Made by <span class="text-primary-600">AdKe</span></p>
+    </div>
+  </div>
+</footer>
+  </main>
+  <script>
+    function redirectToPayment(option, amount) {
+      // Construct the URL with query parameters
+      const baseUrl = "/payment/package";
+      const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+      // Redirect the user
+      window.location.href = url;
+    }
+  </script>
 <%- include('./includes/footer.ejs') %>

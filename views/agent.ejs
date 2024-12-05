@@ -1,147 +1,162 @@
 <%- include('./includes/headers.ejs') %>
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="main-content">
+    <div class="dashboard-main-body">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Pricing</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">Agent Pricing</li>
+            </ul>
+        </div>
 
-        <div class="page-content">
-            <div class="container-fluid">
-
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Packages</h4>
-
-
-
-                        </div>
-                    </div>
-                </div>
-                <!-- end page title -->
-
+        <div class="card h-100 p-0 radius-12 overflow-hidden">
+            <div class="card-header border-bottom bg-base py-16 px-24">
+                <h6 class="mb-0 text-lg">Pricing Plan </h6>
+            </div>
+            <div class="card-body p-40">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center mb-5">
-                            <h4>Choose your Add On</h4>
-                            <p class="text-muted">Add ons are a good way to  be a premium member and to be prioritised as a vip </p>
+                    <div class="col-xxl-10">
+                        <div class="text-center">
+                            <h4 class="mb-16">Pricing Plan</h4>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-xl-6 col-md-6">
-                        <div class="card plan-box">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-grow-1">
-                                        <h5>Associate Pr</h5>
-                                        <p class="text-muted">Wallet Benefits</p>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel"
+                                aria-labelledby="pills-monthly-tab" tabindex="0">
+                                <div class="row gy-4">
+                                    <div class="col-xxl-4 col-sm-6 pricing-plan-wrapper">
+                                        <div
+                                            class="pricing-plan position-relative radius-24 overflow-hidden border bg-lilac-100">
+                                            <div class="d-flex align-items-center gap-16">
+                                                <span
+                                                    class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon1.png" alt="">
+                                                </span>
+                                                <div class="">
+                                                    <h6 class="mb-0">Associate</h6>
+                                                </div>
+                                            </div>
+                                            <p class="mt-16 mb-0 text-secondary-light mb-28">Associate Agent</p>
+                                            <h3 class="mb-24">KES 4800<span
+                                                    class="fw-medium text-md text-secondary-light">/Lifetime</span>
+                                            </h3>
+                                            <span class="mb-20 fw-medium">What’s included</span>
+                                            <ul>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon
+                                                            icon="iconamoon:check-light"
+                                                            class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">All analytics
+                                                        features</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon
+                                                            icon="iconamoon:check-light"
+                                                            class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Guaranteed Wallet Access</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-lilac-600 rounded-circle"><iconify-icon
+                                                            icon="iconamoon:check-light"
+                                                            class="text-white text-lg "></iconify-icon></span>
+                                                    <span class="text-secondary-light text-lg">Monetary benefits
+                                                </span>
+                                                </li>
+                                                
+                                            </ul>
+                                            <button type="button"
+                                                class="bg-lilac-600 bg-hover-lilac-700 text-white text-center border border-lilac-600 text-sm btn-sm px-12 py-10 w-100 radius-8 mt-28"
+                                                onclick="redirectToPayment('Associate', 7000)">Get started</button>
+                                        </div>
                                     </div>
-                                    <div class="flex-shrink-0 ms-3">
-                                        <i class="bx bx-cycling h1 text-primary"></i>
+                                    <div class="col-xxl-4 col-sm-6 pricing-plan-wrapper">
+                                        <div
+                                            class="pricing-plan scale-item position-relative radius-24 overflow-hidden border bg-primary-600 text-white">
+                                            <span
+                                                class="bg-white bg-opacity-25 text-white radius-24 py-8 px-24 text-sm position-absolute end-0 top-0 z-1 rounded-start-top-0 rounded-end-bottom-0">Popular</span>
+                                            <div class="d-flex align-items-center gap-16">
+                                                <span
+                                                    class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon2.png" alt="">
+                                                </span>
+                                                <div class="">
+                                                    <h6 class="mb-0 text-white">Advanced Agent</h6>
+                                                </div>
+                                            </div>
+                                            <p class="mt-16 mb-0 text-white mb-28">Super Partner. </p>
+                                            <h3 class="mb-24 text-white">KES 8000 <span
+                                                    class="fw-medium text-md text-white">/Lifetime</span> </h3>
+                                            <span class="mb-20 fw-medium">What’s included</span>
+                                            <ul>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600""><iconify-icon
+                                                            icon="iconamoon:check-light" class=" text-lg "></iconify-icon></span>
+                                                    <span class="text-white text-lg">All analytics
+                                                        features</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon
+                                                            icon="iconamoon:check-light"
+                                                            class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Priority User</span>
+                                                </li>
+                                                <li class="d-flex align-items-center gap-16 mb-16">
+                                                    <span
+                                                        class="w-24-px h-24-px d-flex justify-content-center align-items-center bg-white rounded-circle text-primary-600"><iconify-icon
+                                                            icon="iconamoon:check-light"
+                                                            class="text-lg   "></iconify-icon></span>
+                                                    <span class="text-white text-lg">Zero withdrawal time</span>
+                                                </li>
+                                                
+                                            </ul>
+                                            <button type="button"
+                                                class="bg-white text-primary-600 text-white text-center border border-white text-sm btn-sm px-12 py-10 w-100 radius-8 mt-28"
+                                                onclick="redirectToPayment('Partner', 8000)">Get
+                                            started</button>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="py-4">
-                                    <h2><sup><small>KES</small></sup> 7000/ <span class="font-size-13">Per month</span>
-                                    </h2>
-                                </div>
-                                <div class="text-center plan-btn">
-                                    <a href="javascript: void(0);"
-                                        class="btn btn-primary btn-sm waves-effect waves-light"
-                                        onclick="redirectToPayment('Associate', 4800)">
-                                        Select Plan
-                                    </a>
-
-                                    <script>
-                                        function redirectToPayment(option, amount) {
-                                            // Construct the URL with query parameters
-                                            const baseUrl = "/payment/package";
-                                            const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
-
-                                            // Redirect the user
-                                            window.location.href = url;
-                                        }
-                                    </script>
-                                </div>
-
-                                <div class="plan-features mt-5">
-                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Guaranteed Wallet Access</p>
-                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Monetary benefits</p>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <div class="card plan-box">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-grow-1">
-                                        <h5>Partner</h5>
-                                        <p class="text-muted">Priority Package</p>
-                                    </div>
-                                    <div class="flex-shrink-0 ms-3">
-                                        <i class="bx bx-car h1 text-primary"></i>
-                                    </div>
-                                </div>
-                                <div class="py-4">
-                                    <h2><sup><small>KES</small></sup> 8000/ <span class="font-size-13">Per month</span>
-                                    </h2>
-                                </div>
-                                <div class="text-center plan-btn">
-                                    <a href="javascript:void(0);"
-                                        class="btn btn-primary btn-sm waves-effect waves-light"
-                                        onclick="redirectToPayment('Partner', 8000)">
-                                        Select Plan
-                                    </a>
-
-                                    <script>
-                                        function redirectToPayment(option, amount) {
-                                            // Construct the URL with query parameters
-                                            const baseUrl = "/payment/package";
-                                            const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
-
-                                            // Redirect the user
-                                            window.location.href = url;
-                                        }
-                                    </script>
-
-                                </div>
-
-                                <div class="plan-features mt-5">
-                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Priority User</p>
-                                    <p><i class="bx bx-checkbox-square text-primary me-2"></i> Zero wait time</p>
                                     
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
 
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
-
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> © LuxurPay.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by JK.M Ids
-                        </div>
-                    </div>
-                </div>
             </div>
-        </footer>
-    </div>
-    <!-- end main content-->
+        </div>
 
     </div>
-    <!-- END layout-wrapper -->
+
+    <footer class="d-footer">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <p class="mb-0">© 2024 Advision. All Rights Reserved.</p>
+            </div>
+            <div class="col-auto">
+                <p class="mb-0">Made by <span class="text-primary-600">AdKe</span></p>
+            </div>
+        </div>
+    </footer>
+    </main>
+    <script>
+        function redirectToPayment(option, amount) {
+            // Construct the URL with query parameters
+            const baseUrl = "/payment/package";
+            const url = `${baseUrl}?option=${encodeURIComponent(option)}&amount=${encodeURIComponent(amount)}`;
+
+            // Redirect the user
+            window.location.href = url;
+        }
+    </script>
     <%- include('./includes/footer.ejs') %>

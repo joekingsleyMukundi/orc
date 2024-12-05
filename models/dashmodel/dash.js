@@ -40,6 +40,10 @@ const dashboardSchema = new Schema({
     type: String,
     required: true,
   },
+  isCashback:{
+	type: Boolean,
+	default:false,
+  },
 },
 { timestamps: true });
 const Dashboard = new mongoose.model('Dashboard',dashboardSchema);
