@@ -8,7 +8,7 @@
                   <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                         <img src="" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0">
                         <div class="flex-grow-1">
-                            <h6 class="text-xl mb-1">Deposite Balance</h6>
+                            <h6 class="text-xl mb-1">Deposit Balance</h6>
                         
                         </div>
                     </div>
@@ -50,10 +50,11 @@
             onclick="handleWithdraw2()"> Withdraw Now  <%=whatsappdash.activeBalance%></a>
           <% } %>
 <div id="popupContainer1"
-                              style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -20%); padding: 20px; border: 1px solid #ccc; back>                              <p id="popupMessage1"></p>
-                              <p id="popupAmount1" style="font-weight: bold; display: none;"></p>
+                              style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -20%); padding: 20px; border: 1px solid #ccc; back>                            
+  <p id="popupMessage1">Purchase Money pass to Proceed</p>
+                              <p id="popupAmount1" style="font-weight: bold; display: none;">Amount: KES9000</p>
                               <button id="completeButton1" class="btn btn-success btn-sm w-md" onclick="completeAction1()">Complete</button>
-                              <button class="btn btn-secondary btn-sm w-md" onclick="closePopup()">Cancel</button>
+                              <button class="btn btn-secondary btn-sm w-md" onclick="closePopup1()">Cancel</button>
                             </div>
           <script>
             // Simulated dashboard object for demo nstration purposes
@@ -67,13 +68,12 @@
 
               // Deter6722282db89a811cf9993ce7mine the popup content based on the package
               if (packageType == 'None'|| packageType == 'Basic' || packageType == 'Platinum' || packageType == 'Premium_ads') {
-                popupMessage.textContent = "Purchase Money Pass to proceed.";
-                popupAmount.textContent = "Amount: KES 9000";
+                
                 popupAmount.style.display = "block";
               }
 
               // Show the popup
-              popupContainer.style.display = "block";
+              popupContainer1.style.display = "block";
             }
 
             function completeAction1() {
@@ -114,12 +114,12 @@
                 }
                 redirectToPayment("Money_pass", 9000)
               }
-              closePopup();
+              closePopup1();
             }
 
-            function closePopup() {
+            function closePopup1() {
               // Close the popup
-              document.getElementById("popupContainer").style.display = "none";
+              document.getElementById("popupContainer1").style.display = "none";
             }
           </script>
 
