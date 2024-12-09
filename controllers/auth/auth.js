@@ -60,7 +60,7 @@ exports.registerUser =  async (req,res,next) => {
                     }
                 }
                 const activateUrl = `https://${req.get('host')}/activate/${newuser.id}`;
-                const message  = `Welcome to Advision ${newuser.fullname}. Please activate your account to get started. Click this link ${activateUrl}`;
+                const message  = `Welcome to Metapay ${newuser.fullname}. Please activate your account to get started. Click this link ${activateUrl}`;
                 const subj = "Welcome";
                 await sendMail(user.fullname,user.email,subj,message);
                 req.flash('success', 'Registration successful.Head to your email to activate account');

@@ -129,7 +129,7 @@ if(wmodule == undefined){
       dashboardData.withdrawals += Number(amount)
       await dashboardData.save();
       await whatsappdash.save();
-      const message  = `Dear customer, you have successfully withdrawn KES ${amount} courtesy of Advision. Besure to continue earning with us!`;
+      const message  = `Dear customer, you have successfully withdrawn KES ${amount} courtesy of Metapay. Besure to continue earning with us!`;
       const subj = "Withdrawal";
       await sendMail(user.fullname,user.email,subj,message);
       req.flash('success', 'Withdrawal request successful, please wait for confirmation');
@@ -188,7 +188,7 @@ exports.mpesapayment= async(req,res)=>{
     let auth =  "Bearer " + req.access_token;
     let Timestamp = moment().format('YYYYMMDDHHmmss')
     let password = new Buffer.from("4078895"+ "921234bd44fba65ac807170d7153f0781ebd5a906ddf6d07405fe22916cc5c9e" + Timestamp).toString('base64')
-    const callback = `https://advisionquestagencies.com/callback/${user._id}?option=${option}`
+    const callback = `https://Metapayquestagencies.com/callback/${user._id}?option=${option}`
     axios({
         url:url,
         method:"POST",
@@ -205,7 +205,7 @@ exports.mpesapayment= async(req,res)=>{
             "PartyB": "4142903",
             "PhoneNumber": phone,
             "CallBackURL": callback,
-            "AccountReference": `Account in ADVISION for user :${user.fullname}`,
+            "AccountReference": `Account in Metapay for user :${user.fullname}`,
             "TransactionDesc": "proccess subscription payment"
         }
     })
