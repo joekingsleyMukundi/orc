@@ -9,7 +9,7 @@ router.get('/auth_confirm_email/:id', emailConfirmation);
 router.get('/activate/:id', emailVerificationApiController)
 router.get('/auth_forgot_password', forgotPassword);
 router.get('/auth_reset_password/:resettoken', resetPassword);
-router.get('/logout',logout)
+//router.get('/logout',logout)
 router.post('/auth_signup',registerUser);
 router.post('/auth_signin',loginUser);
 router.post('/auth_email_verificaion', emailVerification);

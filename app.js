@@ -50,9 +50,9 @@ initSocketServer(server);
 
 const io = require('./services/sockets').getSocketInstance();
 
-const port = process.env.PORT || 4040;
+const port = 4040;
 
-const mongoUrl = 'mongodb+srv://joekingsleymukundi:Mukundijoe254@cluster0.dau9k.mongodb.net/advision';
+const mongoUrl = 'mongodb+srv://joekingsleymukundi:Mukundijoe254@cluster0.dau9k.mongodb.net/mamary';
 const dbConn = async () => {
   try {
     mongoose.set("strictQuery", false);

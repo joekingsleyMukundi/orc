@@ -5,256 +5,212 @@ const {sendMail} = require('../../utils/mails')
 const formatPhoneNumber = require('../../utils/auth/phoneverify');
 const Password = require('../../utils/auth/password');
 const { logActivity } = require('../../services/activityService');
-const WhatsAppDashboard = require('../../models/dashmodel/whatsappdashboard');
-const JobsDashboard = require('../../models/dashmodel/jobsdash');
-const CryptoDash = require('../../models/dashmodel/cryptodashboard');
-const BlogDashboard = require('../../models/dashmodel/blogsdashbard');
-exports.registerUser =  async (req,res,next) => {
-    if(req.session.user){
-        res.redirect('/')
-    }
-    if(req.method == 'POST'){
-        const{fullname,email,phone,password} = req.body;
-        if (email == "" || fullname == "" || phone == ""||password=="") {
-            req.flash('error','empty values cannot be submited');
-            return res.redirect('/auth_signup');
-        }
-        const phoneNo = formatPhoneNumber(phone);
-        if(phoneNo == undefined){
-            req.flash('error','Phone number hassome issues');
-            return res.redirect('/auth_signup');
-        }
-        const user = await User.findOne({phone:phoneNo});
-        if(user){
-            req.flash('error', 'Phone already exists');
-            return res.redirect('/auth_signup');
-        }
-	const fuser = await User.findOne({fullname:fullname});
-        if(fuser){
-            req.flash('error', 'Name already exists');
-            return res.redirect('/auth_signup');
-        }
-        User.findOne({email:email})
-            .then(userDocs=>{
-            if(userDocs){
-                console.log(userDocs);
-                req.flash('error', 'Email already exists');
-                return res.redirect('/auth_signup');
-            }
-            const user = new User({fullname:fullname,email:email,password:password,phone:phoneNo});
-            return user.save()
-            .then( async newuser=>{
-                console.log("meme2")
-                console.log(req.query.invitedby);
-                if(req.query.invitedby){
-                    console.log("mememmmm111")
-                }
-                if(req.query.invitedby){
-                    console.log("mememmmm")
-                    const upline = await User.findOne({fullname:req.query.invitedby})
-                    if(upline){
-                        console.log(upline);
-                        
-                        newuser.upline = upline._id;
-                       await newuser.save();
-                    }
-                }
-                const activateUrl = `https://${req.get('host')}/activate/${newuser.id}`;
-                const message  = `Welcome to Metapay ${newuser.fullname}. Please activate your account to get started. Click this link ${activateUrl}`;
-                const subj = "Welcome";
-                await sendMail(user.fullname,user.email,subj,message);
-                req.flash('success', 'Registration successful.Head to your email to activate account');
-                return res.redirect(`/auth_signin`);
-            });
-        })
-        .catch(error=>{
-            console.log(error);
-            req.flash('error', 'Error occured plese contact admin');
-            return res.redirect('/auth_signup');
-        });
-    }else{
-        res.render('register',{message:req.flash('error')})
-    }
-}
-exports.loginUser = async (req,res,next)=>{
-    if(req.session.user){
-        console.log(req.session.user);
-        return res.redirect('/')
-    }
-    if(req.method == 'POST'){
-        if (req.body.email == "" || req.body.password == "") {
-            req.flash('error','empty values cannot be submited');
-            return res.redirect('/auth_signin');
-        }
-        const{email, password} = req.body;
-        const existinguser = await User.findOne({email});
-        if(!existinguser){
-            req.flash('error', 'User does not exist');
-            return res.redirect('/auth_signin')
-        }
-        const matchpassword = await Password.compare(existinguser.password, password);
-        if(!matchpassword){
-            req.flash('error', 'Wrong password');
-            return res.redirect('/auth_signin')
-        }
-        if(!existinguser.verified){
-            req.flash('error', 'User is not activated');
-            return res.redirect('/auth_signin')
-        }
-        req.session.user = existinguser;
-        req.session.is_loggedin=true;
-        return res.redirect('/')
-    }else{
-        res.render('login', {successmessage:req.flash('success'),errormessage:req.flash('error')})
-    }
-}
-exports.emailConfirmation = async (req,res,next)=>{
-    const user  = await User.findOne({_id: req.params.id})
-    console.log(user);
-    if (!user){
-        req.flash('error', 'User does not exist');
-        return res.redirect('/auth_signup')
-    }
-    if(!user.verified){
-        req.flash('error', 'User is not active');
-        return res.redirect(`/auth_signin`)
-    }
-    req.session.user = user;
-    req.session.is_loggedin = true;
-    res.redirect('/auth_signin')
-}
-exports.emailVerification = async (req, res, next)=>{
-    if(req.session.user){
-        return res.redirect('/')
-    }
-    const email = req.params.email;
-    const user = await User.findOne({email:email})
-    if (!user){
-        req.flash('error', 'User does not exist');
-        return res.redirect('/auth_signup')
-    }
-    if (user.verified) {
-        req.flash('error', 'User is already verified');
-        return res.redirect('/auth_signin')
-    }
-    res.render('emailverification',{
-        user,
-    });
-}
-exports.emailVerificationApiController = async (req,res,next)=>{
-    const id = req.params.id;
-    
-    if (id){
-        const user = await User.findOne({_id:id});
-       
-        if(!user){
-            req.flash('error', 'User doesnot exist');
-            res.redirect('/auth_signup')
-            return;
-        }
-        if(user.verified){
-            req.flash('error', 'User is already active');
-            res.redirect('/auth_signin')
-            return;
-        }
-        user.verified = true;
-        await user.save();
-        const userDashboard= new Dashboard({user:user.id, package: "None"})
-        const whatsappdash = new WhatsAppDashboard({user:user.id});
-        const jobsdash = new JobsDashboard({user:user.id})
-        const cryptodash = new CryptoDash({user:user.id})
-        const blogsdash = new BlogDashboard({user:user.id})
-        await userDashboard.save();
-        await whatsappdash.save();
-        await jobsdash.save();
-        await cryptodash.save();
-        await blogsdash.save();
-        req.flash('success', 'Account activated successfully');
-        res.redirect(`/auth_confirm_email/${id}`)
-    }
-}
-exports.forgotPassword = async (req,res,next)=>{
-    if(req.session.user){
-            res.redirect('/')
-    }
-    if(req.method == 'POST'){
-        if (req.body.email == "") {
-            req.flash('error','empty values cannot be submited');
-            return res.redirect('/auth_forgot_password');
-        }
-        const user = await User.findOne({email:req.body.email});
-        if(!user){
-            req.flash('error', 'User does not exist');
-            return res.redirect('/auth_signin');
-        }
-        const resetToken = user.getResetPasswordToken();
-        
-        const reseturl = `http://${req.get('host')}/auth_reset_password/${resetToken}`;
-        const message  = `You are receiving this email because you (or someone else) has requested a reset of password. Please click this link ${reseturl}`;
-        const subj = "Password Renewal";
-        try {
-            await sendMail(user.username,user.email,subj,message);
-            req.flash('success' , 'Instructiions were sent to your email');
-            res.redirect('/auth_forgot_password');
-        } catch (error) {
-            console.log(error);
-            user.resetPasswordToken = undefined;
-            user.resetPassworExpire = undefined;
-            await user.save({validateBeforeSave: false});
-            req.flash('error' , 'something went wrong');
-            res.redirect('/auth_forgot_password');
-        }
-        await user.save(
-        {
-            validateBeforeSave: false
-        });
-    }else{
-        res.render('recoverpw',{successmessage:req.flash('success'),errormessage:req.flash('error')});
-    }
-}
-exports.resetPassword = async (req,res,next)=>{
-    // get hashed token
-    const resetpassToken  = crypto.createHash('sha256').update(req.params.resettoken).digest('hex');
-    console.log(resetpassToken);
-    const user = await User.findOne({
-        resetPasswordToken : resetpassToken,
-    });
+const { signToken } = require('../../utils/auth/jwt');
+exports.registerUser = async (req, res) => {
+    const { fullname, email, password } = req.body;
 
-    console.log(user);
-    if(!user){
-        req.flash('error', 'User does not exist');
-        return res.redirect(`/auth_signup`)
+    if (!fullname || !email || !password) {
+        return res.status(400).json({ error: 'All fields are required.' });
     }
-    if(req.method == 'POST'){
-        if (req.body.password == "") {
-            req.flash('error','empty values cannot be submited');
-            return res.redirect(`/auth_reset_password/${req.params.resettoken}`);
-        }
-        if (req.body.password !== req.body.repassword){
-            req.flash('error','passwords should match')
-            return res.redirect(`/auth_reset_password/${req.params.resettoken}`)
-        }
-        // set new pass
-        user.password = req.body.password;
-        user.resetPasswordToken = undefined;
-        user.resetPassworExpire= undefined;
-        await user.save();
-        req.session.user = user;
-        req.session.is_loggedin = true
-        logActivity(user._id,"Password reset")
-        req.flash('success', 'Password reset');
-        res.redirect('/')
-    }else{
-        res.render('resetpw',{ resettoken:req.params.resettoken, successmessage:req.flash('success'),errormessage:req.flash('error')})
+
+    const existingName = await User.findOne({ fullname });
+    if (existingName) {
+        return res.status(409).json({ error: 'Name already exists.' });
     }
-}
-exports.logout=(req,res,next)=>{
-  req.session.destroy(function(err) {
-        if(err) {
-            return next(err);
-        } else {
-            req.session = null;
-            return res.redirect('/auth_signin');
+
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+        return res.status(409).json({ error: 'Email already exists.' });
+    }
+
+    try {
+        const newUser = new User({ fullname, email, password });
+        await newUser.save();
+
+        if (req.query.invitedby) {
+            const upline = await User.findOne({ fullname: req.query.invitedby });
+            if (upline) {
+                newUser.upline = upline._id;
+                await newUser.save();
+            }
+        }
+
+        const activateUrl = `${req.protocol}://${req.get('host')}/api/auth/activate/${newUser._id}`;
+        const message = `Welcome to Mama Rhyndom ${newUser.fullname}. Activate: ${activateUrl}`;
+        //await sendMail(newUser.fullname, newUser.email, 'Welcome', message);
+
+        return res.status(201).json({ message: 'Registration successful. Please verify email.' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Server error. Try again later.' });
+    }
+};
+exports.loginUser = async (req, res) => {
+    const { email, password } = req.body;
+
+    // 1. Validate input
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required.' });
+    }
+
+    // 2. Check user existence
+    const user = await User.findOne({ email });
+    if (!user) {
+        return res.status(404).json({ error: 'User not found.' });
+    }
+
+    // 3. Check password
+    const isMatch = await Password.compare(user.password, password);
+    if (!isMatch) {
+        return res.status(401).json({ error: 'Incorrect password.' });
+    }
+
+    // 4. Check verification
+    if (!user.verified) {
+        return res.status(403).json({ error: 'Account not activated. Please verify email.' });
+    }
+
+    // 5. Sign and return JWT
+    const token = signToken(user._id);
+    return res.status(200).json({
+        message: 'Login successful',
+        token,
+        user: {
+            id: user._id,
+            fullname: user.fullname,
+            email: user.email,
+            phone: user.phone
         }
     });
 };
+
+// controllers/authController.js
+exports.emailConfirmation = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User does not exist.' });
+        }
+
+        if (!user.verified) {
+            return res.status(400).json({ error: 'User is not verified.' });
+        }
+
+        // Optional: You can return token here if needed
+        return res.status(200).json({
+            message: 'Email confirmed successfully.',
+            user: {
+                id: user._id,
+                fullname: user.fullname,
+                email: user.email,
+                phone: user.phone,
+                verified: user.verified
+            }
+        });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Server error during email confirmation.' });
+    }
+};
+
+exports.emailVerification = async (req, res) => {
+    try {
+        const email = req.params.email;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found.' });
+        }
+
+        if (user.verified) {
+            return res.status(400).json({ error: 'User already verified.' });
+        }
+
+        return res.status(200).json({
+            message: 'User exists but not verified.',
+            user: {
+                id: user._id,
+                fullname: user.fullname,
+                email: user.email,
+                phone: user.phone,
+                verified: user.verified
+            }
+        });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Error verifying email.' });
+    }
+};
+exports.emailVerificationApiController = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+
+    if (!user) {
+        return res.status(404).json({ error: 'User not found.' });
+    }
+
+    if (user.verified) {
+        return res.status(409).json({ error: 'User already activated.' });
+    }
+
+    user.verified = true;
+    await user.save();
+
+    return res.status(200).json({ message: 'Account activated successfully.' });
+};
+
+exports.forgotPassword = async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required.' });
+    }
+
+    const user = await User.findOne({ email });
+    if (!user) {
+        return res.status(404).json({ error: 'User not found.' });
+    }
+
+    const resetToken = user.getResetPasswordToken();
+    await user.save({ validateBeforeSave: false });
+
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/auth/reset-password/${resetToken}`;
+    const message = `Reset your password using this link: ${resetUrl}`;
+
+    try {
+        await sendMail(user.fullname, user.email, 'Password Reset', message);
+        return res.status(200).json({ message: 'Password reset instructions sent.' });
+    } catch (err) {
+        console.error(err);
+        user.resetPasswordToken = undefined;
+        user.resetPassworExpire = undefined;
+        await user.save({ validateBeforeSave: false });
+        return res.status(500).json({ error: 'Failed to send email.' });
+    }
+};
+
+exports.resetPassword = async (req, res) => {
+    const { resettoken } = req.params;
+    const { password, repassword } = req.body;
+
+    if (!password || !repassword || password !== repassword) {
+        return res.status(400).json({ error: 'Passwords must match and not be empty.' });
+    }
+
+    const hashedToken = crypto.createHash('sha256').update(resettoken).digest('hex');
+    const user = await User.findOne({ resetPasswordToken: hashedToken });
+
+    if (!user) {
+        return res.status(404).json({ error: 'Invalid or expired reset token.' });
+    }
+
+    user.password = password;
+    user.resetPasswordToken = undefined;
+    user.resetPassworExpire = undefined;
+    await user.save();
+
+    logActivity(user._id, "Password reset");
+    return res.status(200).json({ message: 'Password has been reset successfully.' });
+};
+
